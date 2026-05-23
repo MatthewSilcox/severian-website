@@ -52,12 +52,12 @@ body{
 .page{
   max-width:38rem;
   margin:0 auto;
-  padding:6rem 1.5rem;
+  padding:4.5rem 1.5rem 6rem;
 }
 
 .masthead{
   text-align:center;
-  margin-bottom:5rem;
+  margin-bottom:3.5rem;
 }
 
 .site-title{
@@ -101,17 +101,6 @@ a:hover{border-bottom-color:#D4A843}
   margin:3.5rem auto;
 }
 
-.opening>p:first-child::first-letter{
-  float:left;
-  font-family:'Cormorant Garamond',Georgia,serif;
-  font-weight:600;
-  font-size:4.2rem;
-  line-height:.72;
-  padding-right:.1em;
-  padding-top:.06em;
-  color:#D4A843;
-}
-
 h2{
   font-family:'Cormorant Garamond',Georgia,serif;
   font-weight:500;
@@ -141,6 +130,61 @@ h2{
 
 .email a{border-bottom-color:rgba(212,168,67,.55)}
 
+.hero-email{
+  margin-top:.4rem;
+}
+
+.post{
+  margin-bottom:2rem;
+}
+
+.post:last-of-type{
+  margin-bottom:1.6rem;
+}
+
+.post-title{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-style:italic;
+  font-weight:500;
+  font-size:1.25rem;
+  line-height:1.35;
+  margin-bottom:.35rem;
+}
+
+.post-title a{
+  border-bottom-color:rgba(212,168,67,.35);
+}
+
+.post-meta{
+  font-size:.82rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#8C8579;
+  margin-bottom:.5rem;
+}
+
+.post-summary{
+  font-size:1.02rem;
+  margin-bottom:0;
+  line-height:1.7;
+}
+
+.more-link{
+  font-size:1rem;
+  color:#8C8579;
+  margin-bottom:0;
+}
+
+.more-link a{
+  color:#8C8579;
+  border-bottom-color:rgba(212,168,67,.3);
+}
+
+.more-link a:hover{
+  color:#D4A843;
+  border-bottom-color:#D4A843;
+}
+
 .colophon{
   margin-top:5rem;
   padding-top:2rem;
@@ -164,25 +208,29 @@ h2{
 .colophon-links{margin-bottom:.2rem}
 
 @media(max-width:540px){
-  .page{padding:4rem 1.25rem}
-  .masthead{margin-bottom:3.5rem}
-  p{font-size:1.02rem}
-  .opening>p:first-child::first-letter{font-size:3.5rem}
+  .page{padding:2rem 1.25rem 4.5rem}
+  .site-title{font-size:1.05rem;letter-spacing:.18em}
+  .masthead-rule{margin-top:1.4rem}
+  .masthead{margin-bottom:1.75rem}
+  p{font-size:1rem;line-height:1.7}
+  p{margin-bottom:1.3rem}
   .transition{font-size:1.15rem}
   h2{font-size:1.3rem}
   .divider{margin:2.8rem auto}
+  .post-title{font-size:1.15rem}
+  .hero-email{margin-top:.2rem}
 }
 
 @media print{
   body{background:#fff;color:#000}
   .page{max-width:none;padding:2cm 1.5cm}
-  .opening>p:first-child::first-letter{color:#333}
   .divider{border-color:#aaa}
   .masthead-rule{background:#aaa}
   a{border-bottom:none;color:#000}
   a[href^="http"]::after{content:" [" attr(href) "]";font-size:.8em;color:#555}
   a[href^="mailto"]::after{content:none}
   .colophon{border-top-color:#ccc;color:#555}
+  .post-meta{color:#555}
 }
 </style>
 </head>
@@ -197,14 +245,18 @@ h2{
   <main>
     <article>
 
-      <section class="opening">
-        <p>Your organization purchased Microsoft 365 E5 licensing. Somewhere in the procurement justification was a line about data security. The budget was approved, the licenses were provisioned, and the configuration never happened.</p>
+      <section>
+        <p>Severian Technology Group is the data security practice of Matthew Silcox, one of three U.S.-based Microsoft MVPs in Purview Data Security. The work is architecting and implementing Microsoft Purview programs for organizations that already own E5 licensing and need their Purview tenant to do what their auditors and compliance frameworks already assume it is doing. The clients are typically regulated: U.S. healthcare payers, financial services firms, and professional services organizations operating under sector-specific disclosure rules.</p>
 
-        <p>This is not unusual. It is, in the aggregate, the default condition. The security capabilities embedded in E5 require sustained architectural attention that most internal security teams were never resourced to provide. The license was treated as the deliverable but it was only ever the starting material.</p>
+        <p class="hero-email">If that describes the situation: <a href="mailto:matt@severiansecurity.com">matt@severiansecurity.com</a></p>
+      </section>
 
-        <p>The practical consequence is a compliance posture that exists in reporting but not in reality. Sensitivity labels created during a workshop and never published. DLP policies drafted in a pilot and never extended beyond it. Mailboxes and document libraries containing regulated data, sitting in environments the organization has already attested to auditors as protected.</p>
+      <hr class="divider">
 
-        <p>Closing that gap requires technically precise, sustained work.</p>
+      <section>
+        <h2>The Baseline</h2>
+
+        <p>Most engagements start with the Baseline: a defined two-week diagnostic that produces a written assessment of what your Purview tenant is actually classifying, what it is missing, and where the gap between your attested compliance posture and your operational reality is widest. The Baseline is fixed-scope and fixed-fee. It produces an artifact you can hand to an auditor, a board, or a remediation team. It is sometimes the entire engagement. More often it becomes the basis for the architecture and implementation work that follows.</p>
       </section>
 
       <hr class="divider">
@@ -226,9 +278,35 @@ h2{
       <section>
         <h2>Matthew Silcox</h2>
 
-        <p>Severian is the practice of Matthew Silcox, a Microsoft Most Valuable Professional in the category of Purview Data Security. The MVP designation is not a certification. It is an ongoing relationship with Microsoft's product engineering organization. MVPs gain access to pre-release capabilities, roadmap briefings, and the architectural context that determines how these platforms will evolve before that evolution reaches public documentation. Solutions designed with this access are built for the trajectory of the platform, not merely its current surface.</p>
+        <p>Severian is the practice of Matthew Silcox, a Microsoft Most Valuable Professional in the category of Purview Data Security. MVPs gain access to pre-release capabilities, roadmap briefings, and the architectural context that determines how these platforms will evolve before that evolution reaches public documentation. The designation is not a certification. It is an ongoing relationship with Microsoft's product engineering organization, and solutions designed with this access are built for the trajectory of the platform, not merely its current surface.</p>
 
-        <p>The technical depth (implementation specifics, undocumented platform behaviors, the problems that emerge only at the boundary between what the documentation promises and what the software actually does) is published at <a href="https://severian.ghost.io">severian.ghost.io</a>. That writing is for practitioners who do the work, not for the people who approve the budget.</p>
+        <p>The technical depth — implementation specifics, undocumented platform behaviors, the problems that emerge only at the boundary between what the documentation promises and what the software actually does — is published at <a href="https://severian.ghost.io">severian.ghost.io</a> for practitioners who do the work, not the people who approve the budget.</p>
+      </section>
+
+      <hr class="divider">
+
+      <section>
+        <h2>Recent writing</h2>
+
+        <div class="post">
+          <p class="post-title"><a href="https://severian.ghost.io/the-payer-data-classification-gap-thats-going-to-show-up-in-your-nprm-asset-inventory/">The Payer Data Classification Gap That's Going to Show Up in Your NPRM Asset Inventory</a></p>
+          <p class="post-meta">May 22, 2026</p>
+          <p class="post-summary">Why the NPRM's classification mandate traces to OCR's enforcement pattern rather than any single named breach, and what payers should be inventorying now.</p>
+        </div>
+
+        <div class="post">
+          <p class="post-title"><a href="https://severian.ghost.io/the-hipaa-security-rule-nprm-is-a-forensic-document-what-2024s-two-largest-breaches-already-told-us-about-2026s-compliance-map/">The HIPAA Security Rule NPRM is a Forensic Document</a></p>
+          <p class="post-meta">May 10, 2026</p>
+          <p class="post-summary">Reading the proposed Security Rule as forensic reconstruction: how 2024's largest breaches dictated 2026's compliance map.</p>
+        </div>
+
+        <div class="post">
+          <p class="post-title"><a href="https://severian.ghost.io/the-copilot-problem-is-a-data-hygiene-problem/">The Copilot Problem Is a Data Hygiene Problem</a></p>
+          <p class="post-meta">April 6, 2026</p>
+          <p class="post-summary">Copilot did not create a new security risk. The exposure was already there; the deployment just made it observable.</p>
+        </div>
+
+        <p class="more-link">More at <a href="https://severian.ghost.io">severian.ghost.io</a></p>
       </section>
 
       <hr class="divider">
