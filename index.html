@@ -52,12 +52,12 @@ body{
 .page{
   max-width:38rem;
   margin:0 auto;
-  padding:4.5rem 1.5rem 6rem;
+  padding:4rem 1.5rem 6rem;
 }
 
 .masthead{
   text-align:center;
-  margin-bottom:3.5rem;
+  margin-bottom:3rem;
 }
 
 .site-title{
@@ -75,13 +75,13 @@ body{
   width:3rem;
   height:1px;
   background:#D4A843;
-  margin:1.8rem auto 0;
+  margin:1.6rem auto 0;
   opacity:.5;
 }
 
 p{
   font-size:1.08rem;
-  margin-bottom:1.6rem;
+  margin-bottom:1.5rem;
 }
 
 p:last-child{margin-bottom:0}
@@ -101,20 +101,50 @@ a:hover{border-bottom-color:#D4A843}
   margin:3.5rem auto;
 }
 
+.opening>p:first-child::first-letter{
+  float:left;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:600;
+  font-size:4.2rem;
+  line-height:.72;
+  padding-right:.1em;
+  padding-top:.06em;
+  color:#D4A843;
+}
+
 h2{
   font-family:'Cormorant Garamond',Georgia,serif;
   font-weight:500;
   font-size:1.5rem;
   font-style:italic;
-  margin-bottom:1.6rem;
+  margin-bottom:1.5rem;
   color:#1C1917;
 }
 
-.transition{
+h3{
   font-family:'Cormorant Garamond',Georgia,serif;
-  font-size:2rem;
   font-weight:500;
-  margin-bottom:1.8rem;
+  font-style:italic;
+  font-size:1.2rem;
+  letter-spacing:.02em;
+  margin-top:2.4rem;
+  margin-bottom:.9rem;
+  color:#1C1917;
+}
+
+.pullquote{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-style:italic;
+  font-weight:500;
+  font-size:1.65rem;
+  line-height:1.45;
+  text-align:center;
+  color:#1C1917;
+  max-width:30rem;
+  margin:4.5rem auto;
+  padding:1.8rem 1rem;
+  border-top:1px solid rgba(212,168,67,.35);
+  border-bottom:1px solid rgba(212,168,67,.35);
 }
 
 .contact-line{
@@ -208,15 +238,16 @@ h2{
 .colophon-links{margin-bottom:.2rem}
 
 @media(max-width:540px){
-  .page{padding:2rem 1.25rem 4.5rem}
+  .page{padding:1.75rem 1.25rem 4.5rem}
   .site-title{font-size:1.05rem;letter-spacing:.18em}
-  .masthead-rule{margin-top:1.4rem}
-  .masthead{margin-bottom:1.75rem}
-  p{font-size:1rem;line-height:1.7}
-  p{margin-bottom:1.3rem}
-  .transition{font-size:1.15rem}
-  h2{font-size:1.3rem}
-  .divider{margin:2.8rem auto}
+  .masthead-rule{margin-top:1.2rem}
+  .masthead{margin-bottom:1.25rem}
+  p{font-size:1rem;line-height:1.7;margin-bottom:1.1rem}
+  .opening>p:first-child::first-letter{font-size:3.3rem}
+  h2{font-size:1.3rem;margin-bottom:1.2rem}
+  h3{font-size:1.1rem;margin-top:2rem;margin-bottom:.7rem}
+  .pullquote{font-size:1.25rem;margin:3rem auto;padding:1.2rem .5rem;line-height:1.4}
+  .divider{margin:2.6rem auto}
   .post-title{font-size:1.15rem}
   .hero-email{margin-top:.2rem}
 }
@@ -224,8 +255,10 @@ h2{
 @media print{
   body{background:#fff;color:#000}
   .page{max-width:none;padding:2cm 1.5cm}
+  .opening>p:first-child::first-letter{color:#333}
   .divider{border-color:#aaa}
   .masthead-rule{background:#aaa}
+  .pullquote{border-color:#aaa}
   a{border-bottom:none;color:#000}
   a[href^="http"]::after{content:" [" attr(href) "]";font-size:.8em;color:#555}
   a[href^="mailto"]::after{content:none}
@@ -245,10 +278,40 @@ h2{
   <main>
     <article>
 
-      <section>
-        <p>Severian Technology Group is the data security practice of Matthew Silcox, one of three U.S.-based Microsoft MVPs in Purview Data Security. The work is architecting and implementing Microsoft Purview programs for organizations that already own E5 licensing and need their Purview tenant to do what their auditors and compliance frameworks already assume it is doing. The clients are typically regulated: U.S. healthcare payers, financial services firms, and professional services organizations operating under sector-specific disclosure rules.</p>
+      <section class="opening">
+        <p>Severian Technology Group is the data security practice of Matthew Silcox, one of three U.S.-based Microsoft MVPs in Purview Data Security.</p>
+
+        <p>The work is architecting and implementing Microsoft Purview programs for organizations that already own E5 licensing and need their Purview tenant to do what their auditors and compliance frameworks already assume it is doing.</p>
+
+        <p>The clients are typically regulated: U.S. healthcare payers, financial services firms, and professional services organizations operating under sector-specific disclosure rules.</p>
 
         <p class="hero-email">If that describes the situation: <a href="mailto:matt@severiansecurity.com">matt@severiansecurity.com</a></p>
+      </section>
+
+      <p class="pullquote">The license was treated as the deliverable. It was only ever the starting material.</p>
+
+      <section>
+        <h2>The work</h2>
+
+        <p>Severian Technology Group architects and implements data security programs on Microsoft Purview. The platform already exists inside your E5 tenant. The work is configuring it with the specificity it demands.</p>
+
+        <h3>Assessment</h3>
+
+        <p>A comprehensive examination of sensitive data across Exchange Online, SharePoint Online, OneDrive for Business, and Microsoft Teams. For mailbox scanning specifically, Severian deploys proprietary tooling that produces results Microsoft's native compliance capabilities do not — actionable, exportable, on-demand inventories of sensitive information types across the full breadth of an Exchange environment.</p>
+
+        <p>Content Search and eDiscovery were designed for legal holds and targeted investigation, not for the kind of systematic, organization-wide data mapping that a serious DLP architecture requires. The tool was built because the gap in the platform existed and no one had closed it.</p>
+
+        <h3>Architecture</h3>
+
+        <p>Sensitivity labels designed not as a taxonomy exercise but as an operational framework. Each label maps directly to encryption behavior, access restrictions, and downstream DLP policy enforcement.</p>
+
+        <p>Information protection policies written to accommodate how people actually work, which is never quite how compliance frameworks imagine they do. DLP rules built with sufficient precision to avoid the characteristic failure modes of the discipline: policies so broadly scoped they produce debilitating alert volumes, and policies so narrowly defined they miss the regulated data they were designed to intercept.</p>
+
+        <h3>Integration</h3>
+
+        <p>Where Purview intersects with security infrastructure already deployed — Symantec DLP, Digital Guardian, Varonis, or other platforms — Severian builds integration through the Microsoft Information Protection SDK.</p>
+
+        <p>Classification decisions made within Purview propagate to third-party enforcement points. The sensitivity label follows the document across system boundaries. The security ecosystem becomes technically coherent rather than administratively stitched together.</p>
       </section>
 
       <hr class="divider">
@@ -256,29 +319,21 @@ h2{
       <section>
         <h2>The Baseline</h2>
 
-        <p>Most engagements start with the Baseline: a defined two-week diagnostic that produces a written assessment of what your Purview tenant is actually classifying, what it is missing, and where the gap between your attested compliance posture and your operational reality is widest. The Baseline is fixed-scope and fixed-fee. It produces an artifact you can hand to an auditor, a board, or a remediation team. It is sometimes the entire engagement. More often it becomes the basis for the architecture and implementation work that follows.</p>
+        <p>Most engagements start with the Baseline.</p>
+
+        <p>The Baseline is a defined two-week diagnostic that produces a written assessment of what your Purview tenant is actually classifying, what it is missing, and where the gap between your attested compliance posture and your operational reality is widest. It is fixed-scope and fixed-fee.</p>
+
+        <p>The artifact is something you can hand to an auditor, a board, or a remediation team. Sometimes the Baseline is the entire engagement. More often it becomes the basis for the architecture and implementation work that follows.</p>
       </section>
 
-      <hr class="divider">
-
-      <section>
-        <p class="transition">That is what Severian does.</p>
-
-        <p>Severian Technology Group architects and implements data security programs on Microsoft Purview. A platform that already exists inside your E5 tenant, already paid for, provisioned, and waiting to be configured with the specificity it demands. This is not tool deployment. It is the disciplined practice of understanding where an organization's sensitive data actually resides, how it travels through the environment, who touches it, and what controls are architecturally appropriate given the regulatory and operational reality of that specific organization.</p>
-
-        <p>The engagement begins with assessment: a comprehensive examination of sensitive data across Exchange Online, SharePoint Online, OneDrive for Business, and Microsoft Teams. For mailbox scanning specifically, Severian deploys proprietary tooling that produces results Microsoft's native compliance capabilities do not. This includes actionable, exportable, on-demand inventories of sensitive information types across the full breadth of an Exchange environment. Content Search and eDiscovery were designed for legal holds and targeted investigation, not for the kind of systematic, organization-wide data mapping that a serious DLP architecture requires. The tool was built because the gap in the platform existed and no one had closed it.</p>
-
-        <p>From assessment, the work moves to architecture. Sensitivity labels designed not as a taxonomy exercise but as an operational framework. Each label mapping directly to encryption behavior, access restrictions, and downstream DLP policy enforcement. Information protection policies written to accommodate how people actually work, which is never quite how compliance frameworks imagine they do. DLP rules built with sufficient precision to avoid the characteristic failure modes of the discipline: policies so broadly scoped they produce debilitating alert volumes, and policies so narrowly defined they miss the regulated data they were designed to intercept.</p>
-
-        <p>Where Purview intersects with security infrastructure already deployed (Symantec DLP, Digital Guardian, Varonis, or other platforms) Severian builds integration through the Microsoft Information Protection SDK. Classification decisions made within Purview propagate to third-party enforcement points. The sensitivity label follows the document across system boundaries. The security ecosystem becomes technically coherent rather than administratively stitched together.</p>
-      </section>
-
-      <hr class="divider">
+      <p class="pullquote">Payer ePHI doesn't look like what DLP engines were built to find.</p>
 
       <section>
         <h2>Matthew Silcox</h2>
 
-        <p>Severian is the practice of Matthew Silcox, a Microsoft Most Valuable Professional in the category of Purview Data Security. MVPs gain access to pre-release capabilities, roadmap briefings, and the architectural context that determines how these platforms will evolve before that evolution reaches public documentation. The designation is not a certification. It is an ongoing relationship with Microsoft's product engineering organization, and solutions designed with this access are built for the trajectory of the platform, not merely its current surface.</p>
+        <p>Severian is the practice of Matthew Silcox, a Microsoft Most Valuable Professional in the category of Purview Data Security. MVPs gain access to pre-release capabilities, roadmap briefings, and the architectural context that determines how these platforms will evolve before that evolution reaches public documentation.</p>
+
+        <p>The designation is not a certification. It is an ongoing relationship with Microsoft's product engineering organization. Solutions designed with this access are built for the trajectory of the platform, not merely its current surface.</p>
 
         <p>The technical depth — implementation specifics, undocumented platform behaviors, the problems that emerge only at the boundary between what the documentation promises and what the software actually does — is published at <a href="https://severian.ghost.io">severian.ghost.io</a> for practitioners who do the work, not the people who approve the budget.</p>
       </section>
