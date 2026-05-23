@@ -93,7 +93,7 @@ main{
   backdrop-filter:blur(2px) saturate(1.1);
   -webkit-backdrop-filter:blur(2px) saturate(1.1);
   box-shadow:
-    0 1px 0 rgba(255, 250, 235, 0.6) inset,
+    0 1px 0 rgba(255, 250, 235, 0.95) inset,
     0 0 0 1px rgba(184, 146, 61, 0.18),
     0 18px 40px rgba(60, 40, 15, 0.22),
     0 4px 12px rgba(60, 40, 15, 0.15),
@@ -110,16 +110,34 @@ main{
   pointer-events:none;
 }
 
-.corner{
+.panel::before{
+  content:'';
   position:absolute;
-  width:44px;
-  height:44px;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:
+    linear-gradient(180deg,
+      rgba(255, 252, 240, 0.92) 0px,
+      rgba(255, 252, 240, 0.55) 2px,
+      rgba(255, 252, 240, 0) 8px),
+    linear-gradient(132deg,
+      rgba(255, 250, 235, 0.55) 0%,
+      rgba(255, 250, 235, 0.28) 12%,
+      rgba(255, 250, 235, 0.08) 24%,
+      rgba(255, 250, 235, 0) 38%,
+      rgba(255, 250, 235, 0) 72%,
+      rgba(255, 250, 235, 0.12) 88%,
+      rgba(255, 250, 235, 0.32) 100%);
   pointer-events:none;
+  z-index:1;
 }
-.corner-tl{top:-6px;left:-6px}
-.corner-tr{top:-6px;right:-6px;transform:scaleX(-1)}
-.corner-bl{bottom:-6px;left:-6px;transform:scaleY(-1)}
-.corner-br{bottom:-6px;right:-6px;transform:scale(-1,-1)}
+
+.panel > *{
+  position:relative;
+  z-index:3;
+}
 
 .eyebrow{
   font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
@@ -342,10 +360,6 @@ h3{
     padding:2rem 1.25rem 1.75rem;
     margin-bottom:2rem;
   }
-  .corner-tl{top:0;left:0}
-  .corner-tr{top:0;right:0}
-  .corner-bl{bottom:0;left:0}
-  .corner-br{bottom:0;right:0}
   .drop-cap::first-letter{
     font-size:56px;
     padding:4px 8px 0 0;
@@ -376,7 +390,7 @@ h3{
     backdrop-filter:none;
   }
   .panel::after{display:none}
-  .corner{display:none}
+  .panel::before{display:none}
   .eyebrow{color:#555}
   .eyebrow::after{background:#aaa}
   .drop-cap::first-letter{color:#333;text-shadow:none}
@@ -401,15 +415,6 @@ h3{
   <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
 </svg>
 
-<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
-  <defs>
-    <symbol id="corner-ornament" viewBox="0 0 44 44">
-      <circle cx="6" cy="6" r="2.2" fill="#B8923D"/>
-      <circle cx="6" cy="6" r="0.9" fill="#FAF3DC"/>
-    </symbol>
-  </defs>
-</svg>
-
 <main>
 
   <header class="sev-masthead">
@@ -422,11 +427,6 @@ h3{
   </header>
 
   <section class="panel">
-    <svg class="corner corner-tl" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-tr" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-bl" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-br" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-
     <p class="drop-cap">Severian Technology Group is the data security practice of Matthew Silcox, one of three U.S.-based Microsoft MVPs in Purview Data Security.</p>
 
     <p>The work is architecting and implementing Microsoft Purview programs for organizations that already own E5 licensing and need their Purview tenant to do what their auditors and compliance frameworks already assume it is doing.</p>
@@ -439,11 +439,6 @@ h3{
   <p class="pullquote">The license was treated as the deliverable, but it was only ever the starting material.</p>
 
   <section class="panel">
-    <svg class="corner corner-tl" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-tr" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-bl" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-br" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-
     <h2 class="eyebrow">The work</h2>
 
     <p>Severian Technology Group architects and implements data security programs on Microsoft Purview. The platform already exists inside your E5 tenant. The work is configuring it with the specificity it demands.</p>
@@ -474,11 +469,6 @@ h3{
   </div>
 
   <section class="panel">
-    <svg class="corner corner-tl" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-tr" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-bl" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-br" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-
     <h2 class="eyebrow">The Baseline</h2>
 
     <p>Most engagements start with the Baseline.</p>
@@ -491,11 +481,6 @@ h3{
   <p class="pullquote">Payer ePHI doesn't look like what DLP engines were built to find.</p>
 
   <section class="panel">
-    <svg class="corner corner-tl" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-tr" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-bl" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-br" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-
     <h2 class="eyebrow">Matthew Silcox</h2>
 
     <p>Severian is the practice of Matthew Silcox, a Microsoft Most Valuable Professional in the category of Purview Data Security. MVPs gain access to pre-release capabilities, roadmap briefings, and the architectural context that determines how these platforms will evolve before that evolution reaches public documentation.</p>
@@ -511,11 +496,6 @@ h3{
   </div>
 
   <section class="panel">
-    <svg class="corner corner-tl" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-tr" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-bl" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-br" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-
     <h2 class="eyebrow">Recent writing</h2>
 
     <div class="post">
@@ -546,11 +526,6 @@ h3{
   </div>
 
   <section class="panel">
-    <svg class="corner corner-tl" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-tr" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-bl" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-    <svg class="corner corner-br" aria-hidden="true" focusable="false"><use href="#corner-ornament"/></svg>
-
     <p class="contact-line">If this described your situation with uncomfortable accuracy, the appropriate next step is a direct conversation.</p>
     <p class="email"><a href="mailto:matt@severiansecurity.com">matt@severiansecurity.com</a></p>
   </section>
