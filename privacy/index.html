@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy &mdash; Severian Technology Group</title>
+<meta name="description" content="Privacy notice for Severian Technology Group: how we handle data during Microsoft Purview consulting engagements and information collected through this website.">
+<meta name="theme-color" content="#F7F3E8">
+<meta property="og:title" content="Privacy &mdash; Severian Technology Group">
+<meta property="og:description" content="How Severian Technology Group handles data during Microsoft Purview consulting engagements and through this website.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://severiansecurity.com/privacy">
+<meta property="og:image" content="https://severiansecurity.com/logo.svg">
+<link rel="icon" type="image/svg+xml" href="/logo.svg">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+html,body{min-height:100%}
+
+body{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  color:#2A2317;
+  font-size:16.5px;
+  line-height:1.78;
+  background-color:#F7F3E8;
+  background-image:
+    radial-gradient(ellipse at 15% 10%, rgba(90, 65, 25, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 95%, rgba(70, 50, 20, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 50%, rgba(255, 252, 244, 0.5) 0%, transparent 70%);
+  background-attachment:fixed;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  position:relative;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.28 0 0 0 0 0.20 0 0 0 0 0.10 0 0 0 0.06 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+  background-repeat:repeat;
+  mix-blend-mode:multiply;
+  pointer-events:none;
+  z-index:0;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  box-shadow:inset 0 0 120px rgba(50, 35, 15, 0.18);
+  pointer-events:none;
+  z-index:0;
+}
+
+::selection{background:rgba(184,146,61,.25)}
+
+main{
+  position:relative;
+  z-index:1;
+  max-width:760px;
+  margin:0 auto;
+  padding:4rem 1rem 2rem;
+}
+
+.panel{
+  position:relative;
+  max-width:640px;
+  margin:0 auto 3rem;
+  padding:3rem 2.25rem 2.5rem;
+  background:
+    linear-gradient(180deg, rgba(252, 246, 230, 0.62) 0%, rgba(248, 240, 220, 0.55) 100%);
+  backdrop-filter:blur(2px) saturate(1.1);
+  -webkit-backdrop-filter:blur(2px) saturate(1.1);
+  box-shadow:
+    0 1px 0 rgba(255, 250, 235, 0.95) inset,
+    0 0 0 1px rgba(184, 146, 61, 0.18),
+    0 18px 40px rgba(60, 40, 15, 0.22),
+    0 4px 12px rgba(60, 40, 15, 0.15),
+    inset 0 0 80px rgba(184, 146, 61, 0.06);
+}
+
+.panel::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='2.2' numOctaves='1' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.28 0 0 0 0 0.20 0 0 0 0 0.10 0 0 0 0.03 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  background-repeat:repeat;
+  mix-blend-mode:multiply;
+  pointer-events:none;
+}
+
+.panel::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:
+    linear-gradient(180deg,
+      rgba(255, 252, 240, 0.92) 0px,
+      rgba(255, 252, 240, 0.55) 2px,
+      rgba(255, 252, 240, 0) 8px),
+    linear-gradient(132deg,
+      rgba(255, 250, 235, 0.55) 0%,
+      rgba(255, 250, 235, 0.28) 12%,
+      rgba(255, 250, 235, 0.08) 24%,
+      rgba(255, 250, 235, 0) 38%,
+      rgba(255, 250, 235, 0) 72%,
+      rgba(255, 250, 235, 0.12) 88%,
+      rgba(255, 250, 235, 0.32) 100%);
+  pointer-events:none;
+  z-index:1;
+}
+
+.panel > *{
+  position:relative;
+  z-index:3;
+}
+
+.eyebrow{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-variant:small-caps;
+  letter-spacing:.32em;
+  font-size:11px;
+  color:#8A6A28;
+  text-align:center;
+  margin:0 0 2rem;
+  font-weight:normal;
+  font-style:normal;
+  line-height:1.4;
+}
+.eyebrow::after{
+  content:'';
+  display:block;
+  width:56px;
+  height:1px;
+  background:linear-gradient(to right, transparent, #B8923D, transparent);
+  margin:.9rem auto 0;
+}
+
+p{
+  margin-bottom:1.15rem;
+}
+
+p:last-child{margin-bottom:0}
+
+a{
+  color:#6F5118;
+  text-decoration:underline;
+  text-decoration-color:rgba(111, 81, 24, 0.4);
+  text-underline-offset:3px;
+}
+a:hover{
+  text-decoration-color:#6F5118;
+}
+
+.drop-cap::first-letter{
+  font-size:72px;
+  line-height:.82;
+  float:left;
+  padding:6px 10px 0 0;
+  color:#B8923D;
+  font-family:Georgia,'Trajan Pro',serif;
+  font-weight:700;
+  text-shadow:0 1px 0 rgba(140, 100, 30, 0.25);
+}
+
+h3{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-style:italic;
+  font-weight:500;
+  font-size:1.15rem;
+  letter-spacing:.02em;
+  margin-top:2rem;
+  margin-bottom:.75rem;
+  color:#2A2317;
+}
+
+.effective{
+  text-align:center;
+  font-size:11px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-variant:small-caps;
+  color:#8A6A28;
+  margin-top:1.5rem;
+  margin-bottom:0;
+}
+
+.sev-masthead{
+  text-align:center;
+  padding:5rem 1.5rem 3.5rem;
+  position:relative;
+  z-index:2;
+}
+.sev-masthead a{
+  color:inherit;
+  text-decoration:none;
+  display:block;
+}
+.sev-masthead a:hover{
+  text-decoration:none;
+}
+.sev-masthead-sigil{
+  height:96px;
+  width:auto;
+  fill:#2A2317;
+  display:block;
+  margin:0 auto 1.75rem;
+}
+.sev-wordmark-primary{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-size:38px;
+  font-weight:400;
+  letter-spacing:.16em;
+  color:#2A2317;
+  margin:0 0 0 .16em;
+  line-height:1;
+}
+.sev-wordmark-rule{
+  width:88px;
+  height:1px;
+  background:linear-gradient(to right, transparent, #B8923D, transparent);
+  margin:.85rem auto;
+}
+.sev-wordmark-secondary{
+  font-family:Georgia,serif;
+  font-size:12px;
+  font-weight:400;
+  letter-spacing:.4em;
+  color:#2A2317;
+  margin:0 0 0 .4em;
+  line-height:1;
+}
+
+.sev-watermark{
+  position:fixed;
+  top:8vh;
+  left:50%;
+  transform:translateX(-50%);
+  height:min(700px, 82vh);
+  width:auto;
+  fill:#2A2317;
+  opacity:.04;
+  z-index:0;
+  pointer-events:none;
+}
+
+.sigil-divider{
+  text-align:center;
+  margin:3rem 0;
+  position:relative;
+  z-index:2;
+}
+.sigil-divider svg{
+  height:44px;
+  width:auto;
+  fill:#2A2317;
+  opacity:.85;
+  display:inline-block;
+}
+
+.email{
+  text-align:center;
+  font-size:18px;
+  font-style:italic;
+  margin-bottom:0;
+}
+
+.colophon{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  padding:1.5rem 1rem 3rem;
+  font-size:12px;
+  letter-spacing:.05em;
+  color:#8A6A28;
+  line-height:2;
+}
+.colophon a{
+  color:#8A6A28;
+  text-decoration-color:rgba(138, 106, 40, 0.3);
+}
+.colophon-links{margin-bottom:.2rem}
+
+@media(max-width:640px){
+  main{padding:2rem .75rem 1.5rem}
+  .panel{
+    padding:2rem 1.25rem 1.75rem;
+    margin-bottom:2rem;
+  }
+  .drop-cap::first-letter{
+    font-size:56px;
+    padding:4px 8px 0 0;
+  }
+  .sigil-divider{margin:2rem 0}
+  .sigil-divider svg{height:36px}
+  .sev-masthead{padding:3rem 1rem 2.25rem}
+  .sev-masthead-sigil{height:72px;margin-bottom:1.25rem}
+  .sev-wordmark-primary{font-size:28px}
+  .sev-wordmark-rule{margin:.7rem auto}
+  .sev-watermark{height:min(560px, 70vh)}
+  h3{font-size:1.05rem;margin-top:1.6rem}
+}
+
+@media print{
+  body{background:#fff;color:#000}
+  body::before,body::after{display:none}
+  main{max-width:none;padding:2cm 1.5cm}
+  .panel{
+    background:none;
+    box-shadow:none;
+    padding:0;
+    margin:2rem 0;
+    backdrop-filter:none;
+  }
+  .panel::after{display:none}
+  .panel::before{display:none}
+  .eyebrow{color:#555}
+  .eyebrow::after{background:#aaa}
+  .drop-cap::first-letter{color:#333;text-shadow:none}
+  .sev-watermark{display:none}
+  .sev-masthead-sigil{fill:#333}
+  .sev-wordmark-primary,.sev-wordmark-secondary{color:#000}
+  .sev-wordmark-rule{background:#aaa}
+  .sigil-divider svg{fill:#555}
+  a{color:#000;text-decoration-color:#888}
+  a[href^="http"]::after{content:" [" attr(href) "]";font-size:.8em;color:#555}
+  a[href^="mailto"]::after{content:none}
+  .colophon{color:#555}
+  .effective{color:#555}
+}
+</style>
+</head>
+<body>
+
+<svg class="sev-watermark" viewBox="0 0 85 386" aria-hidden="true" focusable="false">
+  <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
+</svg>
+
+<main>
+
+  <header class="sev-masthead">
+    <a href="/" aria-label="Severian Technology Group home">
+      <svg class="sev-masthead-sigil" viewBox="0 0 85 386" aria-hidden="true" focusable="false">
+        <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
+      </svg>
+      <h1 class="sev-wordmark-primary">SEVERIAN</h1>
+      <div class="sev-wordmark-rule" aria-hidden="true"></div>
+      <p class="sev-wordmark-secondary">TECHNOLOGY GROUP</p>
+    </a>
+  </header>
+
+  <section class="panel">
+    <h2 class="eyebrow">Privacy notice</h2>
+
+    <p class="drop-cap">Severian Technology Group is a Microsoft Purview consulting practice operated by Matthew Silcox. This notice explains what data we collect through this website, what we access during client engagements, and how that information is handled.</p>
+
+    <p>It is written to be read. Where the terms governing a specific engagement differ from this notice, the engagement Statement of Work and Non-Disclosure Agreement control.</p>
+
+    <p class="effective">Effective May 2026</p>
+  </section>
+
+  <section class="panel">
+    <h2 class="eyebrow">What we collect</h2>
+
+    <h3>From this website</h3>
+
+    <p>When you submit the contact form, we collect the name, email address, company, and message you provide. We also collect standard server-side analytics: pages viewed, referrer, browser type, and an approximate location derived from IP address.</p>
+
+    <h3>From client engagements</h3>
+
+    <p>Our engagements require access to your Microsoft 365 tenant. Under the admin consent you grant, we access Exchange Online mailbox content, SharePoint Online sites, OneDrive for Business storage, and Microsoft Teams data within the scope defined by the engagement.</p>
+
+    <p>The artifacts we generate from that access (scan result metadata, configuration documentation, written deliverables) are the only material that leaves the tenant boundary.</p>
+
+    <h3>From the blog</h3>
+
+    <p>Our blog is hosted on Ghost at <a href="https://severian.ghost.io">severian.ghost.io</a>. Email subscriptions, reading analytics, and any data collected through the blog platform are governed by Ghost's privacy policy, not this one.</p>
+  </section>
+
+  <section class="panel">
+    <h2 class="eyebrow">How we use it</h2>
+
+    <p>Contact form submissions are used to respond to your inquiry. Engagement data is used to produce the deliverables you have engaged us to produce. Website analytics are used in aggregate to understand traffic patterns and improve the site.</p>
+
+    <p>We do not sell personal data. We do not use advertising trackers. We do not share contact information with third parties for marketing purposes. We do not build behavioral profiles of website visitors.</p>
+  </section>
+
+  <div class="sigil-divider" aria-hidden="true">
+    <svg viewBox="0 0 85 386" aria-hidden="true" focusable="false">
+      <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
+    </svg>
+  </div>
+
+  <section class="panel">
+    <h2 class="eyebrow">Engagement data</h2>
+
+    <p>Our consulting work (Purview Data Risk Assessments, Copilot Readiness Assessments, and Enterprise Purview Readiness engagements) requires access to your Microsoft 365 tenant. The terms below apply to that access.</p>
+
+    <h3>Authority</h3>
+
+    <p>We access tenant data only after explicit administrative consent has been granted by the customer. Access is scoped to the permissions the customer authorizes and limited to the duration of the engagement.</p>
+
+    <h3>Scope</h3>
+
+    <p>Access is restricted to the workloads required by the engagement, typically Exchange Online, SharePoint Online, OneDrive for Business, and Microsoft Teams. We do not request, and do not retain, permissions beyond what the scope of work requires.</p>
+
+    <h3>Retention</h3>
+
+    <p>We do not retain customer tenant data after deliverable handoff. Engagement artifacts (written deliverables, scan result metadata, configuration documentation) are retained only as long as the engagement requires, then deleted on the schedule defined in the Statement of Work.</p>
+
+    <h3>Egress</h3>
+
+    <p>Raw mailbox or workload content is not exported from your tenant. Deliverables contain metadata and findings, not the underlying records.</p>
+  </section>
+
+  <section class="panel">
+    <h2 class="eyebrow">The SIT Scanner</h2>
+
+    <p>Severian operates a proprietary at-rest scanning tool that detects Sensitive Information Types (Social Security Numbers, credit card numbers, protected health information markers, and similar patterns) in Exchange Online mailbox content. The specifics of how it handles data are worth being explicit about.</p>
+
+    <p>The tool runs inside your tenant using the delegated or application permissions you have granted. Mailbox content is processed within tenant boundaries and is not transmitted to any system outside the tenant.</p>
+
+    <p>What we receive in the engagement deliverable is match metadata: the type of Sensitive Information Type matched, the count of matches, and the location (mailbox, folder, message identifier).</p>
+
+    <p>Raw mailbox content is never copied, exported, or stored on Severian-controlled infrastructure. Match metadata is retained only as long as the engagement requires.</p>
+  </section>
+
+  <div class="sigil-divider" aria-hidden="true">
+    <svg viewBox="0 0 85 386" aria-hidden="true" focusable="false">
+      <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
+    </svg>
+  </div>
+
+  <section class="panel">
+    <h2 class="eyebrow">Retention and deletion</h2>
+
+    <h3>Contact form submissions</h3>
+
+    <p>Retained for twenty-four months unless the inquiry develops into a paid engagement, in which case retention follows the engagement schedule. Earlier deletion is available on request.</p>
+
+    <h3>Engagement deliverables and scan metadata</h3>
+
+    <p>Retained per the schedule defined in the engagement Statement of Work. The customer may request deletion at or after engagement close.</p>
+
+    <h3>Tenant access</h3>
+
+    <p>Administrative consent is the customer's to revoke at any time. As a standard practice, we revoke our own access at engagement close.</p>
+
+    <h3>Website analytics</h3>
+
+    <p>Aggregated traffic data is retained for fourteen months.</p>
+
+    <p>Deletion requests for any data we hold can be sent to <a href="mailto:privacy@severiansecurity.com">privacy@severiansecurity.com</a>.</p>
+  </section>
+
+  <section class="panel">
+    <h2 class="eyebrow">Vendors and cookies</h2>
+
+    <h3>Third-party services</h3>
+
+    <p>Our business operations rely on a small set of vendors: Microsoft 365 and Azure for engagement workloads and business communication, Ghost for blog hosting, and standard infrastructure providers for the website itself.</p>
+
+    <p>Vendors that handle engagement data operate under contracts that flow down the customer's regulatory obligations. Specific subprocessors involved in a given engagement are documented in the engagement Data Processing Agreement.</p>
+
+    <h3>Cookies</h3>
+
+    <p>This website uses only the cookies required for the site to function. No advertising cookies, no cross-site tracking, no behavioral profiling. The site continues to work if cookies are disabled in your browser.</p>
+  </section>
+
+  <div class="sigil-divider" aria-hidden="true">
+    <svg viewBox="0 0 85 386" aria-hidden="true" focusable="false">
+      <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
+    </svg>
+  </div>
+
+  <section class="panel">
+    <h2 class="eyebrow">Regulatory context</h2>
+
+    <p>Our customers operate under HIPAA in healthcare, GLBA in financial services, CMMC in government and defense, and the disclosure regimes that govern the nonprofit and professional services sectors. Our data handling practices during engagements are designed to align with the compliance frameworks we help customers implement.</p>
+
+    <p>Customers subject to specific regulatory frameworks should reference their engagement Statement of Work and Non-Disclosure Agreement for the data handling terms that govern their particular engagement. Those documents control where they differ from this notice.</p>
+  </section>
+
+  <section class="panel">
+    <h2 class="eyebrow">Contact</h2>
+
+    <p>Questions about this notice, requests to access or delete information we hold about you, or anything else privacy-related can be sent to the address below.</p>
+
+    <p class="email"><a href="mailto:privacy@severiansecurity.com">privacy@severiansecurity.com</a></p>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <p class="colophon-links"><a href="/">severiansecurity.com</a> &middot; <a href="https://severian.ghost.io">severian.ghost.io</a> &middot; <a href="https://www.linkedin.com/in/matthew-silcox-a73518297/">LinkedIn</a></p>
+  <p>&copy; 2026 Severian Technology Group</p>
+</footer>
+
+</body>
+</html>
