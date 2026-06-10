@@ -419,6 +419,201 @@ h3{
   .colophon{color:#555}
   .post-meta{color:#555}
 }
+
+/* ── Copilot Oversharing Report Card — featured entry offer ──────────── */
+.offer-card{
+  max-width:640px;
+  margin:0 auto 3rem;
+  padding-top:2.5rem;
+}
+
+/* deep-gold "featured" hairline along the top edge */
+.offer-card .offer-toprule{
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(to right,transparent,#b8923d 16%,#b8923d 84%,transparent);
+  pointer-events:none;
+}
+
+.offer-head{margin-bottom:1.5rem}
+
+.offer-kicker{
+  font-variant:small-caps;
+  letter-spacing:.32em;
+  font-size:11px;
+  color:#8a6a28;
+  margin:0 0 .6rem;
+  line-height:1.4;
+}
+
+/* title row holds the spec-sheet headline + the grade emblem */
+.offer-titlewrap{position:relative}
+
+.offer-title{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-weight:400;
+  font-size:1.74rem;
+  line-height:1.14;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:#2a2317;
+  margin:0;
+  max-width:74%;
+}
+.offer-title::after{
+  content:'';
+  display:block;
+  width:64px;
+  height:2px;
+  margin:.85rem 0 0;
+  background:linear-gradient(to right,#b8923d,rgba(184,146,61,0));
+}
+
+.offer-tagline{
+  font-style:italic;
+  font-size:1.12rem;
+  line-height:1.4;
+  color:#3a2d14;
+  margin:.95rem 0 0;
+}
+
+/* report-card grade emblem, aligned to the headline */
+.offer-grade{
+  position:absolute;
+  top:-.1rem;
+  right:0;
+  width:72px;
+  text-align:center;
+  border:1px solid rgba(184,146,61,.5);
+  padding:.35rem 0 .4rem;
+  color:#b8923d;
+  line-height:1;
+}
+.offer-grade-mark{
+  display:block;
+  font-size:36px;
+  font-weight:700;
+  letter-spacing:.02em;
+  text-shadow:0 1px 0 rgba(140,100,30,.22);
+}
+.offer-grade-scale{
+  display:block;
+  font-variant:small-caps;
+  letter-spacing:.2em;
+  font-size:10px;
+  color:#8a6a28;
+  margin-top:.28rem;
+  padding-top:.3rem;
+  border-top:1px solid rgba(184,146,61,.35);
+}
+
+/* inner gold-ruled spec frame — the "report card" border */
+.offer-frame{
+  border:1px solid rgba(184,146,61,.4);
+  padding:1.6rem 1.55rem 1.7rem;
+}
+
+.offer-lead{margin-bottom:1.2rem}
+.offer-amount{color:#b8923d}
+
+/* small-caps gold run-in labels (inline, no compounding margins) */
+.offer-label{
+  font-variant:small-caps;
+  letter-spacing:.22em;
+  font-size:.92em;
+  color:#8a6a28;
+}
+
+.offer-getlabel{
+  display:block;
+  font-variant:small-caps;
+  letter-spacing:.26em;
+  font-size:12px;
+  color:#8a6a28;
+  margin:0 0 .6rem;
+}
+
+.offer-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.offer-list li{
+  position:relative;
+  padding-left:1.3rem;
+  margin-bottom:.55rem;
+  line-height:1.6;
+}
+.offer-list li:last-child{margin-bottom:0}
+.offer-list li::before{
+  content:'·';
+  position:absolute;
+  left:.25rem;
+  top:-.04em;
+  color:#b8923d;
+  font-size:1.45em;
+  line-height:1;
+}
+
+.offer-why{margin:1.5rem 0 0}
+.offer-close{margin:1.2rem 0 0}
+
+/* bracketed [ BOOK THE SCAN › ] button — brackets baked into markup */
+.offer-cta-wrap{text-align:center;margin:2rem 0 0}
+.offer-cta{
+  display:inline-block;
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-variant:small-caps;
+  letter-spacing:.2em;
+  font-size:15px;
+  color:#6f5118;
+  text-decoration:none;
+  border:1px solid #b8923d;
+  padding:.7rem 1.6rem;
+  background:rgba(255,252,240,.4);
+  box-shadow:0 1px 0 rgba(255,250,235,.7) inset;
+  transition:background .18s ease,color .18s ease,box-shadow .18s ease;
+}
+.offer-cta:hover{
+  background:#b8923d;
+  color:#2a2317;
+  text-decoration:none;
+  box-shadow:0 6px 16px rgba(60,40,15,.2);
+}
+.offer-cta .offer-bracket{color:#b8923d}
+.offer-cta:hover .offer-bracket{color:#2a2317}
+
+@media(max-width:640px){
+  .offer-card{padding-top:2rem}
+  .offer-title{font-size:1.4rem;max-width:100%}
+  .offer-tagline{font-size:1.02rem}
+  .offer-grade{display:none}
+  .offer-frame{padding:1.25rem 1.1rem 1.35rem}
+  .offer-getlabel{letter-spacing:.2em}
+  .offer-cta-wrap{margin-top:1.6rem}
+  .offer-cta{display:block;letter-spacing:.16em}
+}
+
+@media print{
+  .offer-card .offer-toprule{display:none}
+  .offer-grade{display:none}
+  .offer-frame{border-color:#aaa;padding:0}
+  .offer-title{color:#000}
+  .offer-title::after{background:#aaa}
+  .offer-kicker,.offer-label,.offer-getlabel{color:#555}
+  .offer-amount{color:#000}
+  .offer-list li::before{color:#555}
+  .offer-cta{
+    border-color:#888;
+    background:none;
+    color:#000;
+    box-shadow:none;
+    padding:0;
+  }
+  .offer-cta .offer-bracket{color:#555}
+  .offer-cta::after{content:none !important}
+}
 </style>
 </head>
 <body>
@@ -472,6 +667,47 @@ h3{
     <p>Where Purview intersects with security infrastructure already deployed (Symantec DLP, Digital Guardian, Varonis, or other platforms), Severian builds integration through the Microsoft Information Protection SDK.</p>
 
     <p>Classification decisions made within Purview propagate to third-party enforcement points. The sensitivity label follows the document across system boundaries. The security ecosystem becomes technically coherent rather than administratively stitched together.</p>
+  </section>
+
+  <div class="sigil-divider" aria-hidden="true">
+    <svg viewBox="0 0 85 386" aria-hidden="true" focusable="false">
+      <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
+    </svg>
+  </div>
+
+  <section class="panel offer-card">
+    <div class="offer-toprule" aria-hidden="true"></div>
+
+    <div class="offer-head">
+      <p class="offer-kicker">Featured engagement</p>
+      <div class="offer-titlewrap">
+        <div class="offer-grade" aria-hidden="true">
+          <span class="offer-grade-mark">A</span>
+          <span class="offer-grade-scale">A&ndash;F</span>
+        </div>
+        <h2 class="offer-title">The Copilot Oversharing Report Card</h2>
+      </div>
+      <p class="offer-tagline">Find out what Copilot can see &mdash; before your users do.</p>
+    </div>
+
+    <div class="offer-frame">
+      <p class="offer-lead"><b><span class="offer-amount">$2,500</span> flat.</b> Founding rate for the first five organizations; $3,500 after. Five business days, start to readout.</p>
+
+      <span class="offer-getlabel">You get</span>
+      <ul class="offer-list">
+        <li>An A&ndash;F exposure grade for your Microsoft 365 tenant</li>
+        <li>The top-10 overshared locations &mdash; each with an owner and a blast radius</li>
+        <li>A sensitive-data heat list: the SITs that actually matter to you &mdash; SSNs, donor and student records, payroll, board materials</li>
+        <li>A 60-minute executive readout in plain language</li>
+        <li>One fixed-fee next step. No hourly anything, ever.</li>
+      </ul>
+
+      <p class="offer-why"><span class="offer-label">Why us:</span> Built and personally delivered by one of a small handful of U.S. Microsoft MVPs recognized for Purview and data security &mdash; the practitioner, not a bench of juniors. Recent client: a major U.S. art museum, 500 seats, pre-Copilot rollout.</p>
+
+      <p class="offer-close"><b>Priced to be signable without procurement.</b> One week from now, you&rsquo;ll know your grade.</p>
+    </div>
+
+    <p class="offer-cta-wrap"><a class="offer-cta" href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile"><span class="offer-bracket">[</span> Book the Scan &rsaquo; <span class="offer-bracket">]</span></a></p>
   </section>
 
   <div class="sigil-divider" aria-hidden="true">
