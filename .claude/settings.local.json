@@ -12,7 +12,12 @@
       "Bash(git push:*)",
       "Bash(gh pr:*)",
       "Bash(where gh:*)",
-      "Bash(curl -s -A \"Mozilla/5.0\" https://severian.ghost.io/rss/)"
+      "Bash(curl -s -A \"Mozilla/5.0\" https://severian.ghost.io/rss/)",
+      "Bash(gh auth *)",
+      "Bash(git config *)",
+      "Bash(git ls-remote *)",
+      "Bash(git ls-tree *)",
+      "Bash(git merge *)"
     ]
   }
 }

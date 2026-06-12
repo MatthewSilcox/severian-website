@@ -445,6 +445,17 @@ h3{
   pointer-events:none;
 }
 
+/* metal-tier hairline variants for the engagement cards */
+.offer-card .offer-toprule--silver{
+  background:linear-gradient(to right,transparent,#a9aeb8 16%,#a9aeb8 84%,transparent);
+}
+.offer-card .offer-toprule--gold{
+  background:linear-gradient(to right,transparent,#d4af37 16%,#d4af37 84%,transparent);
+}
+.offer-card .offer-toprule--violet{
+  background:linear-gradient(to right,transparent,#4a3160 16%,#4a3160 84%,transparent);
+}
+
 .offer-head{margin-bottom:1.5rem}
 
 .offer-kicker{
@@ -478,6 +489,9 @@ h3{
   margin:.85rem 0 0;
   background:linear-gradient(to right,#b8923d,rgba(184,146,61,0));
 }
+
+/* cards without the grade emblem can use the full measure */
+.offer-title--full{max-width:100%}
 
 .offer-tagline{
   font-style:italic;
@@ -720,23 +734,6 @@ h3{
   margin:0 auto 1.15rem;
 }
 
-/* Minimal footer signup */
-.sev-capture-mini-wrap{margin:0 0 1.4rem}
-.sev-capture-mini{max-width:420px}
-.sev-capture-mini .sev-capture-input{
-  flex:1 1 200px;
-  font-size:15px;
-  padding:.55rem .75rem;
-}
-.sev-capture-mini .sev-capture-btn{
-  font-size:13px;
-  padding:.55rem 1.1rem;
-}
-.sev-capture-mini-wrap .sev-capture-msg{
-  font-size:12.5px;
-  margin-top:.7rem;
-}
-
 @media(max-width:640px){
   .sev-proof{letter-spacing:.16em;font-size:10px;margin-top:1.4rem}
   .sev-grade-title{font-size:1.25rem}
@@ -746,7 +743,7 @@ h3{
 @media print{
   .sev-proof{color:#555}
   .sev-proof::before{background:#aaa}
-  .sev-capture-form,.sev-capture-mini-wrap,.sev-capture-msg{display:none}
+  .sev-capture-form,.sev-capture-msg{display:none}
   .sev-grade-title{color:#000}
 }
 </style>
@@ -776,7 +773,7 @@ h3{
 
     <p>The clients are regulated enterprises (healthcare, financial services, government, defense, and nonprofit) operating under frameworks that assume data security controls already exist.</p>
 
-    <p class="hero-email">If this describes your situation: <a href="mailto:matt@severiansecurity.com">matt@severiansecurity.com</a> · <a href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&ep=mLinkFromTile">Book a 30-minute scoping call</a></p>
+    <p class="hero-email">If this describes your situation: <a href="mailto:matt@severiansecurity.com">matt@severiansecurity.com</a> · <a href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile">Book a 30-minute scoping call</a></p>
   </section>
 
   <p class="pullquote">The license was treated as the deliverable, but it was only ever the starting material. Copilot didn't create a new risk, it made the existing one observable.</p>
@@ -814,16 +811,6 @@ h3{
     </div>
 
     <p class="offer-cta-wrap"><a class="offer-cta" href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile"><span class="offer-bracket">[</span> Book the Scan &rsaquo; <span class="offer-bracket">]</span></a></p>
-  </section>
-
-  <section class="panel sev-capture" data-capture>
-    <h2 class="eyebrow">Field Notes</h2>
-    <p class="sev-capture-copy">Purview, Copilot readiness, and data security &mdash; written for the people who do the work. No more than weekly.</p>
-    <form class="sev-capture-form" novalidate>
-      <input class="sev-capture-input" type="email" name="email" required placeholder="you@organization.com" aria-label="Email address" autocomplete="email" inputmode="email">
-      <button class="sev-capture-btn" type="submit">Subscribe</button>
-    </form>
-    <p class="sev-capture-msg" role="status" aria-live="polite" hidden></p>
   </section>
 
   <section class="panel sev-grade">
@@ -874,22 +861,114 @@ h3{
     <h2 class="eyebrow">Engagements</h2>
 
     <p>Every engagement is fixed-scope and fixed-fee. No hourly billing. No scope ambiguity. The deliverable is something you can hand to an auditor, a board, or a remediation team.</p>
+  </section>
 
-    <p><b>Purview Data Risk Assessment - $15,000 · 3 weeks</b></p>
+  <section class="panel offer-card">
+    <div class="offer-toprule" aria-hidden="true"></div>
 
-    <p>A scored examination of what your Purview tenant is actually classifying, what it is missing, and where the gap between your attested compliance posture and your operational reality is widest. Includes proprietary Exchange Online at-rest mailbox scanning, sensitivity label taxonomy recommendation, and a prioritized remediation roadmap with 30/60/90-day milestones. Sometimes the assessment is the entire engagement. More often it becomes the basis for the architecture and implementation work that follows.</p>
+    <div class="offer-head">
+      <p class="offer-kicker">Fixed-fee engagement</p>
+      <div class="offer-titlewrap">
+        <h2 class="offer-title offer-title--full">Purview Data Risk Assessment</h2>
+      </div>
+      <p class="offer-tagline">Where your attested compliance posture and your operational reality diverge.</p>
+    </div>
 
-    <p><b>Copilot Readiness & Oversharing Assessment - $25,000 · 4 weeks</b></p>
+    <div class="offer-frame">
+      <p class="offer-lead"><b><span class="offer-amount">$15,000</span> flat.</b> Three weeks, start to readout.</p>
 
-    <p>For organizations deploying or planning M365 Copilot. Copilot does not apply judgment to access, it operates within your users' existing permissions. This engagement quantifies the data exposure Copilot will amplify: SharePoint oversharing audit, persona-based risk modeling, DLP-for-Copilot policy templates, and a go/no-go recommendation with a Copilot-safe deployment architecture.</p>
+      <span class="offer-getlabel">You get</span>
+      <ul class="offer-list">
+        <li>A scored examination of what your Purview tenant is actually classifying, what it is missing, and where the gap between your attested compliance posture and your operational reality is widest</li>
+        <li>Proprietary Exchange Online at-rest mailbox scanning</li>
+        <li>A sensitivity label taxonomy recommendation</li>
+        <li>A prioritized remediation roadmap with 30/60/90-day milestones</li>
+      </ul>
 
-    <p><b>Enterprise Purview Readiness - $45,000–$75,000 · 6–8 weeks</b></p>
+      <p class="offer-close">Sometimes the assessment is the entire engagement. More often it becomes the basis for the architecture and implementation work that follows.</p>
+    </div>
 
-    <p>Full-stack Purview design for regulated enterprises with complex requirements: Information Protection, DLP, Insider Risk Management, Data Lifecycle Management, and Compliance Manager. The deliverable is an implementation blueprint with configuration-level specifications, a phased deployment plan, and a total cost of ownership model for your Purview investment. Scoped based on seat count, workload count, and regulatory complexity.</p>
+    <p class="offer-cta-wrap"><a class="offer-cta" href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile"><span class="offer-bracket">[</span> Book a Scoping Call &rsaquo; <span class="offer-bracket">]</span></a></p>
+  </section>
 
-    <p><b>Managed Purview Operations</b></p>
+  <section class="panel offer-card">
+    <div class="offer-toprule offer-toprule--silver" aria-hidden="true"></div>
 
-    <p>For organizations that need ongoing Purview support after implementation: monthly DLP and policy tuning, oversharing monitoring via proprietary scanning, quarterly executive review, and ad-hoc advisory. Retainers start at $4,000/month.</p>
+    <div class="offer-head">
+      <p class="offer-kicker">Fixed-fee engagement</p>
+      <div class="offer-titlewrap">
+        <h2 class="offer-title offer-title--full">Copilot Readiness &amp; Oversharing Assessment</h2>
+      </div>
+      <p class="offer-tagline">Copilot does not apply judgment to access &mdash; it operates within your users&rsquo; existing permissions.</p>
+    </div>
+
+    <div class="offer-frame">
+      <p class="offer-lead"><b><span class="offer-amount">$25,000</span> flat.</b> Four weeks, start to readout.</p>
+
+      <p>For organizations deploying or planning M365 Copilot. This engagement quantifies the data exposure Copilot will amplify.</p>
+
+      <span class="offer-getlabel">You get</span>
+      <ul class="offer-list">
+        <li>SharePoint oversharing audit</li>
+        <li>Persona-based risk modeling</li>
+        <li>DLP-for-Copilot policy templates</li>
+        <li>A go/no-go recommendation with a Copilot-safe deployment architecture</li>
+      </ul>
+    </div>
+
+    <p class="offer-cta-wrap"><a class="offer-cta" href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile"><span class="offer-bracket">[</span> Book a Scoping Call &rsaquo; <span class="offer-bracket">]</span></a></p>
+  </section>
+
+  <section class="panel offer-card">
+    <div class="offer-toprule offer-toprule--gold" aria-hidden="true"></div>
+
+    <div class="offer-head">
+      <p class="offer-kicker">Fixed-fee engagement</p>
+      <div class="offer-titlewrap">
+        <h2 class="offer-title offer-title--full">Enterprise Purview Readiness</h2>
+      </div>
+      <p class="offer-tagline">Full-stack Purview design for regulated enterprises with complex requirements.</p>
+    </div>
+
+    <div class="offer-frame">
+      <p class="offer-lead"><b><span class="offer-amount">$45,000&ndash;$75,000</span>, fixed at scoping.</b> Six to eight weeks. Scoped on seat count, workload count, and regulatory complexity.</p>
+
+      <span class="offer-getlabel">You get</span>
+      <ul class="offer-list">
+        <li>Information Protection, DLP, Insider Risk Management, Data Lifecycle Management, and Compliance Manager &mdash; designed as one program</li>
+        <li>An implementation blueprint with configuration-level specifications</li>
+        <li>A phased deployment plan</li>
+        <li>A total cost of ownership model for your Purview investment</li>
+      </ul>
+    </div>
+
+    <p class="offer-cta-wrap"><a class="offer-cta" href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile"><span class="offer-bracket">[</span> Book a Scoping Call &rsaquo; <span class="offer-bracket">]</span></a></p>
+  </section>
+
+  <section class="panel offer-card">
+    <div class="offer-toprule offer-toprule--violet" aria-hidden="true"></div>
+
+    <div class="offer-head">
+      <p class="offer-kicker">Monthly retainer</p>
+      <div class="offer-titlewrap">
+        <h2 class="offer-title offer-title--full">Managed Purview Operations</h2>
+      </div>
+      <p class="offer-tagline">Ongoing Purview support after implementation.</p>
+    </div>
+
+    <div class="offer-frame">
+      <p class="offer-lead"><b>Retainers start at <span class="offer-amount">$4,000</span>/month.</b></p>
+
+      <span class="offer-getlabel">You get</span>
+      <ul class="offer-list">
+        <li>Monthly DLP and policy tuning</li>
+        <li>Oversharing monitoring via proprietary scanning</li>
+        <li>Quarterly executive review</li>
+        <li>Ad-hoc advisory</li>
+      </ul>
+    </div>
+
+    <p class="offer-cta-wrap"><a class="offer-cta" href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile"><span class="offer-bracket">[</span> Book a Scoping Call &rsaquo; <span class="offer-bracket">]</span></a></p>
   </section>
 
   <p class="pullquote">Most Purview tenants are configured to catch what the documentation demonstrates. The regulated data that actually lives in your environment rarely looks like the examples.</p>
@@ -935,17 +1014,6 @@ h3{
     <p class="more-link">More at <a href="https://severian.ghost.io">severian.ghost.io</a></p>
   </section>
 
-    <div class="sigil-divider" aria-hidden="true">
-    <svg viewBox="0 0 85 386" aria-hidden="true" focusable="false">
-      <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
-    </svg>
-  </div>
-
-  <section class="panel">
-    <h2 class="eyebrow">Current Engagement</h2>
-    <p class="contact-line">Purview Data Risk Assessment for a major U.S. cultural institution.</p>
-  </section>
-
   <div class="sigil-divider" aria-hidden="true">
     <svg viewBox="0 0 85 386" aria-hidden="true" focusable="false">
       <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
@@ -954,19 +1022,22 @@ h3{
 
   <section class="panel">
     <p class="contact-line">Pick the engagement type that fits. The conversation takes 30 minutes.</p>
-    <p class="email"><a href="mailto:matt@severiansecurity.com">matt@severiansecurity.com</a> · <a href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&ep=mLinkFromTile">Book a 30-minute scoping call</a></p>
+    <p class="email"><a href="mailto:matt@severiansecurity.com">matt@severiansecurity.com</a> · <a href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile">Book a 30-minute scoping call</a></p>
+  </section>
+
+  <section class="panel sev-capture" data-capture>
+    <h2 class="eyebrow">Field Notes Blog</h2>
+    <p class="sev-capture-copy">Purview, Copilot readiness, and data security &mdash; written for the people who do the work. No more than weekly.</p>
+    <form class="sev-capture-form" novalidate>
+      <input class="sev-capture-input" type="email" name="email" required placeholder="you@organization.com" aria-label="Email address" autocomplete="email" inputmode="email">
+      <button class="sev-capture-btn" type="submit">Subscribe</button>
+    </form>
+    <p class="sev-capture-msg" role="status" aria-live="polite" hidden></p>
   </section>
 
 </main>
 
 <footer class="colophon">
-  <div class="sev-capture-mini-wrap" data-capture>
-    <form class="sev-capture-form sev-capture-mini" novalidate>
-      <input class="sev-capture-input" type="email" name="email" required placeholder="Field Notes by email" aria-label="Email address" autocomplete="email" inputmode="email">
-      <button class="sev-capture-btn" type="submit">Subscribe</button>
-    </form>
-    <p class="sev-capture-msg" role="status" aria-live="polite" hidden></p>
-  </div>
   <p class="colophon-links"><a href="https://severian.ghost.io">severian.ghost.io</a> &middot; <a href="https://www.linkedin.com/in/matthew-silcox-a73518297/">LinkedIn</a> &middot; <a href="/privacy/">Privacy</a></p>
   <p>&copy; 2026 Severian Technology Group</p>
 </footer>
