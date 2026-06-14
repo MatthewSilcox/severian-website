@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Privacy &mdash; Severian Technology Group</title>
 <meta name="description" content="Privacy notice for Severian Technology Group: how we handle data during Microsoft Purview consulting engagements and information collected through this website.">
-<meta name="theme-color" content="#F7F3E8">
+<meta name="theme-color" content="#141618">
 <link rel="canonical" href="https://severiansecurity.com/privacy/">
 <meta property="og:title" content="Privacy &mdash; Severian Technology Group">
 <meta property="og:description" content="How Severian Technology Group handles data during Microsoft Purview consulting engagements and through this website.">
@@ -27,18 +27,33 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
+:root{
+  --bg:#141618;
+  --surface:#1C1F21;
+  --surface-2:#262B2D;
+  --border:#353B3D;
+  --border-strong:#4A5255;
+  --text:#DDE0DC;
+  --text-muted:#9BA1A0;
+  --text-faint:#6E7578;
+  --heading:#ECEEEB;
+  --accent:#A2946C;
+  --accent-strong:#B9A878;
+  color-scheme:dark;
+}
+
 html,body{min-height:100%}
 
 body{
   font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
-  color:#2A2317;
+  color:var(--text);
   font-size:16.5px;
   line-height:1.78;
-  background-color:#F7F3E8;
+  background-color:var(--bg);
   background-image:
-    radial-gradient(ellipse at 15% 10%, rgba(90, 65, 25, 0.07) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 95%, rgba(70, 50, 20, 0.10) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 50%, rgba(255, 252, 244, 0.5) 0%, transparent 70%);
+    radial-gradient(ellipse at 15% 10%, rgba(0, 0, 0, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 95%, rgba(0, 0, 0, 0.45) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 50%, rgba(38, 43, 45, 0.45) 0%, transparent 70%);
   background-attachment:fixed;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
@@ -49,9 +64,9 @@ body::before{
   content:'';
   position:fixed;
   inset:0;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.28 0 0 0 0 0.20 0 0 0 0 0.10 0 0 0 0.06 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.86 0 0 0 0 0.88 0 0 0 0 0.86 0 0 0 0.05 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
   background-repeat:repeat;
-  mix-blend-mode:multiply;
+  mix-blend-mode:screen;
   pointer-events:none;
   z-index:0;
 }
@@ -60,12 +75,12 @@ body::after{
   content:'';
   position:fixed;
   inset:0;
-  box-shadow:inset 0 0 120px rgba(50, 35, 15, 0.18);
+  box-shadow:inset 0 0 120px rgba(0, 0, 0, 0.6);
   pointer-events:none;
   z-index:0;
 }
 
-::selection{background:rgba(184,146,61,.25)}
+::selection{background:rgba(162,148,108,.30)}
 
 main{
   position:relative;
@@ -81,24 +96,24 @@ main{
   margin:0 auto 3rem;
   padding:3rem 2.25rem 2.5rem;
   background:
-    linear-gradient(180deg, rgba(252, 246, 230, 0.62) 0%, rgba(248, 240, 220, 0.55) 100%);
+    linear-gradient(180deg, rgba(28, 31, 33, 0.86) 0%, rgba(22, 24, 26, 0.82) 100%);
   backdrop-filter:blur(2px) saturate(1.1);
   -webkit-backdrop-filter:blur(2px) saturate(1.1);
   box-shadow:
-    0 1px 0 rgba(255, 250, 235, 0.95) inset,
-    0 0 0 1px rgba(184, 146, 61, 0.18),
-    0 18px 40px rgba(60, 40, 15, 0.22),
-    0 4px 12px rgba(60, 40, 15, 0.15),
-    inset 0 0 80px rgba(184, 146, 61, 0.06);
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 0 0 1px rgba(162, 148, 108, 0.22),
+    0 18px 40px rgba(0, 0, 0, 0.55),
+    0 4px 12px rgba(0, 0, 0, 0.45),
+    inset 0 0 80px rgba(162, 148, 108, 0.05);
 }
 
 .panel::after{
   content:'';
   position:absolute;
   inset:0;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='2.2' numOctaves='1' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.28 0 0 0 0 0.20 0 0 0 0 0.10 0 0 0 0.03 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='2.2' numOctaves='1' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.86 0 0 0 0 0.88 0 0 0 0 0.86 0 0 0 0.03 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
   background-repeat:repeat;
-  mix-blend-mode:multiply;
+  mix-blend-mode:screen;
   pointer-events:none;
 }
 
@@ -111,17 +126,17 @@ main{
   bottom:0;
   background:
     linear-gradient(180deg,
-      rgba(255, 252, 240, 0.92) 0px,
-      rgba(255, 252, 240, 0.55) 2px,
-      rgba(255, 252, 240, 0) 8px),
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.035) 2px,
+      rgba(255, 255, 255, 0) 8px),
     linear-gradient(132deg,
-      rgba(255, 250, 235, 0.55) 0%,
-      rgba(255, 250, 235, 0.28) 12%,
-      rgba(255, 250, 235, 0.08) 24%,
-      rgba(255, 250, 235, 0) 38%,
-      rgba(255, 250, 235, 0) 72%,
-      rgba(255, 250, 235, 0.12) 88%,
-      rgba(255, 250, 235, 0.32) 100%);
+      rgba(255, 255, 255, 0.035) 0%,
+      rgba(255, 255, 255, 0.02) 12%,
+      rgba(255, 255, 255, 0.008) 24%,
+      rgba(255, 255, 255, 0) 38%,
+      rgba(255, 255, 255, 0) 72%,
+      rgba(255, 255, 255, 0.012) 88%,
+      rgba(255, 255, 255, 0.03) 100%);
   pointer-events:none;
   z-index:1;
 }
@@ -136,7 +151,7 @@ main{
   font-variant:small-caps;
   letter-spacing:.32em;
   font-size:11px;
-  color:#8A6A28;
+  color:var(--accent);
   text-align:center;
   margin:0 0 2rem;
   font-weight:normal;
@@ -148,7 +163,7 @@ main{
   display:block;
   width:56px;
   height:1px;
-  background:linear-gradient(to right, transparent, #B8923D, transparent);
+  background:linear-gradient(to right, transparent, var(--accent), transparent);
   margin:.9rem auto 0;
 }
 
@@ -159,13 +174,13 @@ p{
 p:last-child{margin-bottom:0}
 
 a{
-  color:#6F5118;
+  color:var(--accent);
   text-decoration:underline;
-  text-decoration-color:rgba(111, 81, 24, 0.4);
+  text-decoration-color:rgba(162, 148, 108, 0.4);
   text-underline-offset:3px;
 }
 a:hover{
-  text-decoration-color:#6F5118;
+  text-decoration-color:var(--accent-strong);
 }
 
 .drop-cap::first-letter{
@@ -173,10 +188,10 @@ a:hover{
   line-height:.82;
   float:left;
   padding:6px 10px 0 0;
-  color:#B8923D;
+  color:var(--accent-strong);
   font-family:Georgia,'Trajan Pro',serif;
   font-weight:700;
-  text-shadow:0 1px 0 rgba(140, 100, 30, 0.25);
+  text-shadow:0 1px 0 rgba(0, 0, 0, 0.4);
 }
 
 h3{
@@ -187,7 +202,7 @@ h3{
   letter-spacing:.02em;
   margin-top:2rem;
   margin-bottom:.75rem;
-  color:#2A2317;
+  color:var(--heading);
 }
 
 .effective{
@@ -196,7 +211,7 @@ h3{
   letter-spacing:.18em;
   text-transform:uppercase;
   font-variant:small-caps;
-  color:#8A6A28;
+  color:var(--text-muted);
   margin-top:1.5rem;
   margin-bottom:0;
 }
@@ -218,7 +233,7 @@ h3{
 .sev-masthead-sigil{
   height:96px;
   width:auto;
-  fill:#2A2317;
+  fill:var(--heading);
   display:block;
   margin:0 auto 1.75rem;
 }
@@ -227,14 +242,14 @@ h3{
   font-size:38px;
   font-weight:400;
   letter-spacing:.16em;
-  color:#2A2317;
+  color:var(--heading);
   margin:0 0 0 .16em;
   line-height:1;
 }
 .sev-wordmark-rule{
   width:88px;
   height:1px;
-  background:linear-gradient(to right, transparent, #B8923D, transparent);
+  background:linear-gradient(to right, transparent, var(--accent), transparent);
   margin:.85rem auto;
 }
 .sev-wordmark-secondary{
@@ -242,7 +257,7 @@ h3{
   font-size:12px;
   font-weight:400;
   letter-spacing:.4em;
-  color:#2A2317;
+  color:var(--heading);
   margin:0 0 0 .4em;
   line-height:1;
 }
@@ -254,7 +269,7 @@ h3{
   transform:translateX(-50%);
   height:min(700px, 82vh);
   width:auto;
-  fill:#2A2317;
+  fill:var(--heading);
   opacity:.04;
   z-index:0;
   pointer-events:none;
@@ -269,7 +284,7 @@ h3{
 .sigil-divider svg{
   height:44px;
   width:auto;
-  fill:#2A2317;
+  fill:var(--heading);
   opacity:.85;
   display:inline-block;
 }
@@ -288,12 +303,12 @@ h3{
   padding:1.5rem 1rem 3rem;
   font-size:12px;
   letter-spacing:.05em;
-  color:#8A6A28;
+  color:var(--text-muted);
   line-height:2;
 }
 .colophon a{
-  color:#8A6A28;
-  text-decoration-color:rgba(138, 106, 40, 0.3);
+  color:var(--text-muted);
+  text-decoration-color:rgba(162, 148, 108, 0.3);
 }
 .colophon-links{margin-bottom:.2rem}
 
