@@ -19,7 +19,9 @@
       "Bash(git ls-tree *)",
       "Bash(git merge *)",
       "Bash(python -)",
-      "Bash(git --no-pager diff --word-diff)"
+      "Bash(git --no-pager diff --word-diff)",
+      "Bash(grep -iE '\\\\.\\(jpg|jpeg|png|webp|avif|gif\\)$')",
+      "WebSearch"
     ]
   }
 }
