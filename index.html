@@ -514,25 +514,25 @@ h3{
     pointer-events:none;
     background:linear-gradient(to right,
       transparent 41%,
-      color-mix(in srgb, var(--heading) 14%, transparent) 50%,
+      color-mix(in srgb, var(--heading) 18%, transparent) 50%,
       transparent 59%);
     background-size:200% 100%;
     background-repeat:no-repeat;
     background-position:150% 0;
-    animation:offer-toprule-sweep 12s ease-in-out infinite;
-    animation-delay:2.2s;
+    animation:offer-toprule-sweep 10s ease-in-out infinite;
+    animation-delay:1.8s;
   }
 
   /* gentle stagger so the cards read as ambient light, not one synced pulse */
   #report-card .offer-toprule::after{animation-delay:0s}
-  .offer-card .offer-toprule--silver::after{animation-delay:4.4s}
-  .offer-card .offer-toprule--gold::after{animation-delay:6.6s}
-  .offer-card .offer-toprule--violet::after{animation-delay:8.8s}
+  .offer-card .offer-toprule--silver::after{animation-delay:3.6s}
+  .offer-card .offer-toprule--gold::after{animation-delay:5.4s}
+  .offer-card .offer-toprule--violet::after{animation-delay:7.2s}
 
-  /* light travels during 0%→55%, then idles off-strip until 100% (a soft pause) */
+  /* light travels during 0%→68%, then idles off-strip until 100% (a soft pause) */
   @keyframes offer-toprule-sweep{
     0%   {background-position:150% 0}
-    55%  {background-position:-50% 0}
+    68%  {background-position:-50% 0}
     100% {background-position:-50% 0}
   }
 }
