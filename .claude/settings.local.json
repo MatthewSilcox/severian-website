@@ -21,7 +21,8 @@
       "Bash(python -)",
       "Bash(git --no-pager diff --word-diff)",
       "Bash(grep -iE '\\\\.\\(jpg|jpeg|png|webp|avif|gif\\)$')",
-      "WebSearch"
+      "WebSearch",
+      "Bash(grep -Ei '#[0-9a-f]{3,8}\\\\b|rgb\\\\\\(|rgba\\\\\\(|hsl\\\\\\(|hsla\\\\\\(|\\\\b\\(red|blue|green|gold|silver|violet|white|black|gray|grey|orange|purple|yellow|pink|brown|cyan|magenta\\)\\\\b')"
     ]
   }
 }

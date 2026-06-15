@@ -499,6 +499,44 @@ h3{
   background:linear-gradient(to right,transparent,#9c80c4 16%,#9c80c4 84%,transparent);
 }
 
+/* ── ambient "catching light" sweep across the engagement strips ──────
+   A barely-there highlight drifts across each toprule, derived from a
+   light token via color-mix so it reads identically over the silver,
+   gold, violet, and accent variants — it adds no new colour. Sits on a
+   ::after so it inherits whatever display state the strip has at the
+   current breakpoint (it never forces the strip visible). Motion only:
+   for prefers-reduced-motion the pseudo-element is never created. */
+@media (prefers-reduced-motion: no-preference){
+  .offer-card .offer-toprule::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:linear-gradient(to right,
+      transparent 41%,
+      color-mix(in srgb, var(--heading) 14%, transparent) 50%,
+      transparent 59%);
+    background-size:200% 100%;
+    background-repeat:no-repeat;
+    background-position:150% 0;
+    animation:offer-toprule-sweep 12s ease-in-out infinite;
+    animation-delay:2.2s;
+  }
+
+  /* gentle stagger so the cards read as ambient light, not one synced pulse */
+  #report-card .offer-toprule::after{animation-delay:0s}
+  .offer-card .offer-toprule--silver::after{animation-delay:4.4s}
+  .offer-card .offer-toprule--gold::after{animation-delay:6.6s}
+  .offer-card .offer-toprule--violet::after{animation-delay:8.8s}
+
+  /* light travels during 0%→55%, then idles off-strip until 100% (a soft pause) */
+  @keyframes offer-toprule-sweep{
+    0%   {background-position:150% 0}
+    55%  {background-position:-50% 0}
+    100% {background-position:-50% 0}
+  }
+}
+
 .offer-head{margin-bottom:1.5rem}
 
 .offer-kicker{
