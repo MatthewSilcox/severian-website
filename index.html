@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microsoft Purview Consulting &amp; Copilot Readiness | Severian Technology Group</title>
+<meta name="description" content="Microsoft Purview data security and Copilot readiness. Fixed-fee assessments, DLP, sensitivity labeling, and oversharing remediation for E5 environments. Led by Microsoft MVP and USMC veteran Matthew Silcox.">
+<meta name="theme-color" content="#141618">
+<link rel="canonical" href="https://severiansecurity.com/">
+<meta property="og:title" content="Microsoft Purview Consulting &amp; Copilot Readiness | Severian Technology Group">
+<meta property="og:description" content="Microsoft Purview data security architecture and implementation for E5 environments.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://severiansecurity.com/">
+<meta property="og:image" content="https://severiansecurity.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Severian Technology Group">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Severian Technology Group">
+<meta name="twitter:description" content="Microsoft Purview data security architecture and implementation for E5 environments.">
+<meta name="twitter:image" content="https://severiansecurity.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Severian Technology Group",
+  "url": "https://severiansecurity.com",
+  "logo": "https://severiansecurity.com/logo.svg",
+  "description": "Microsoft Purview data security and Copilot readiness. Fixed-fee assessments, DLP, sensitivity labeling, and oversharing remediation for E5 environments. Led by Microsoft MVP and USMC veteran Matthew Silcox.",
+  "email": "matt@severiansecurity.com",
+  "founder": {
+    "@type": "Person",
+    "name": "Matthew Silcox",
+    "url": "https://severiansecurity.com/about/",
+    "jobTitle": "Microsoft MVP — Purview Data Security",
+    "knowsAbout": [
+      "Microsoft Purview","Data Loss Prevention","Microsoft 365 Copilot data security",
+      "Sensitivity labels","Data Security Posture Management","SharePoint oversharing remediation",
+      "FERPA data governance","HIPAA data classification","Insider Risk Management"
+    ],
+    "sameAs": [
+      "https://severian.ghost.io",
+      "https://www.linkedin.com/in/matthew-silcox-a73518297/"
+    ]
+  },
+  "makesOffer": {
+    "@type": "Offer",
+    "name": "Copilot Oversharing Report Card",
+    "description": "A five-business-day, fixed-fee assessment that grades what Microsoft 365 Copilot can see in your tenant: an A-F exposure grade, the top-10 overshared locations, a sensitive-data heat list, and a 60-minute executive readout.",
+    "price": 2500,
+    "priceCurrency": "USD",
+    "url": "https://severiansecurity.com/#report-card"
+  },
+  "sameAs": [
+    "https://severian.ghost.io",
+    "https://www.linkedin.com/in/matthew-silcox-a73518297/"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Field Notes",
+  "url": "https://severian.ghost.io",
+  "author": {
+    "@type": "Person",
+    "name": "Matthew Silcox",
+    "url": "https://severiansecurity.com/about/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Severian Technology Group",
+    "url": "https://severiansecurity.com"
+  }
+}
+</script>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#141618;
+  --surface:#1C1F21;
+  --surface-2:#262B2D;
+  --border:#353B3D;
+  --border-strong:#4A5255;
+  --text:#DDE0DC;
+  --text-muted:#9BA1A0;
+  --text-faint:#6E7578;
+  --heading:#ECEEEB;
+  --accent:#A2946C;
+  --accent-strong:#B9A878;
+  color-scheme:dark;
+}
+
+html,body{min-height:100%}
+
+body{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  color:var(--text);
+  font-size:16.5px;
+  line-height:1.78;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse at 15% 10%, rgba(0, 0, 0, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 95%, rgba(0, 0, 0, 0.45) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 50%, rgba(38, 43, 45, 0.45) 0%, transparent 70%);
+  background-attachment:fixed;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  position:relative;
+}
+
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.86 0 0 0 0 0.88 0 0 0 0 0.86 0 0 0 0.05 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
+  background-repeat:repeat;
+  mix-blend-mode:screen;
+  pointer-events:none;
+  z-index:0;
+}
+
+body::after{
+  content:'';
+  position:fixed;
+  inset:0;
+  box-shadow:inset 0 0 120px rgba(0, 0, 0, 0.6);
+  pointer-events:none;
+  z-index:0;
+}
+
+::selection{background:rgba(162,148,108,.30)}
+
+main{
+  position:relative;
+  z-index:1;
+  max-width:760px;
+  margin:0 auto;
+  padding:4rem 1rem 2rem;
+}
+
+.panel{
+  position:relative;
+  max-width:640px;
+  margin:0 auto 3rem;
+  padding:3rem 2.25rem 2.5rem;
+  background:
+    linear-gradient(180deg, rgba(28, 31, 33, 0.86) 0%, rgba(22, 24, 26, 0.82) 100%);
+  backdrop-filter:blur(2px) saturate(1.1);
+  -webkit-backdrop-filter:blur(2px) saturate(1.1);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 0 0 1px rgba(162, 148, 108, 0.22),
+    0 18px 40px rgba(0, 0, 0, 0.55),
+    0 4px 12px rgba(0, 0, 0, 0.45),
+    inset 0 0 80px rgba(162, 148, 108, 0.05);
+}
+
+.panel::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='2.2' numOctaves='1' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.86 0 0 0 0 0.88 0 0 0 0 0.86 0 0 0 0.03 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+  background-repeat:repeat;
+  mix-blend-mode:screen;
+  pointer-events:none;
+}
+
+.panel::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.035) 2px,
+      rgba(255, 255, 255, 0) 8px),
+    linear-gradient(132deg,
+      rgba(255, 255, 255, 0.035) 0%,
+      rgba(255, 255, 255, 0.02) 12%,
+      rgba(255, 255, 255, 0.008) 24%,
+      rgba(255, 255, 255, 0) 38%,
+      rgba(255, 255, 255, 0) 72%,
+      rgba(255, 255, 255, 0.012) 88%,
+      rgba(255, 255, 255, 0.03) 100%);
+  pointer-events:none;
+  z-index:1;
+}
+
+.panel > *{
+  position:relative;
+  z-index:3;
+}
+
+.eyebrow{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-variant:small-caps;
+  letter-spacing:.32em;
+  font-size:11px;
+  color:var(--accent);
+  text-align:center;
+  margin:0 0 2rem;
+  font-weight:normal;
+  font-style:normal;
+  line-height:1.4;
+}
+.eyebrow::after{
+  content:'';
+  display:block;
+  width:56px;
+  height:1px;
+  background:linear-gradient(to right, transparent, var(--accent), transparent);
+  margin:.9rem auto 0;
+}
+
+p{
+  margin-bottom:1.15rem;
+}
+
+p:last-child{margin-bottom:0}
+
+a{
+  color:var(--accent);
+  text-decoration:underline;
+  text-decoration-color:rgba(162, 148, 108, 0.4);
+  text-underline-offset:3px;
+}
+a:hover{
+  text-decoration-color:var(--accent-strong);
+}
+
+.drop-cap::first-letter{
+  font-size:72px;
+  line-height:.82;
+  float:left;
+  padding:6px 10px 0 0;
+  color:var(--accent-strong);
+  font-family:Georgia,'Trajan Pro',serif;
+  font-weight:700;
+  text-shadow:0 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+h3{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-style:italic;
+  font-weight:500;
+  font-size:1.15rem;
+  letter-spacing:.02em;
+  margin-top:2rem;
+  margin-bottom:.75rem;
+  color:var(--heading);
+}
+
+.pullquote{
+  text-align:center;
+  font-style:italic;
+  font-size:21px;
+  line-height:1.45;
+  color:var(--text);
+  max-width:460px;
+  margin:0 auto 3rem;
+  padding:.5rem 1rem;
+}
+.pullquote::before,
+.pullquote::after{
+  content:'';
+  display:block;
+  width:80px;
+  height:1px;
+  background:linear-gradient(to right, transparent, var(--accent), transparent);
+  margin:1.6rem auto;
+}
+
+.sev-masthead{
+  text-align:center;
+  padding:5rem 1.5rem 3.5rem;
+  position:relative;
+  z-index:2;
+}
+.sev-masthead-sigil{
+  height:96px;
+  width:auto;
+  fill:var(--heading);
+  display:block;
+  margin:0 auto 1.75rem;
+}
+.sev-wordmark-primary{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-size:38px;
+  font-weight:400;
+  letter-spacing:.16em;
+  color:var(--heading);
+  margin:0 0 0 .16em;
+  line-height:1;
+}
+.sev-wordmark-rule{
+  width:88px;
+  height:1px;
+  background:linear-gradient(to right, transparent, var(--accent), transparent);
+  margin:.85rem auto;
+}
+.sev-wordmark-secondary{
+  font-family:Georgia,serif;
+  font-size:12px;
+  font-weight:400;
+  letter-spacing:.4em;
+  color:var(--heading);
+  margin:0 0 0 .4em;
+  line-height:1;
+}
+
+.sev-watermark{
+  position:fixed;
+  top:8vh;
+  left:50%;
+  transform:translateX(-50%);
+  height:min(700px, 82vh);
+  width:auto;
+  fill:var(--heading);
+  opacity:.04;
+  z-index:0;
+  pointer-events:none;
+}
+
+.sigil-divider{
+  text-align:center;
+  margin:3rem 0;
+  position:relative;
+  z-index:2;
+}
+.sigil-divider svg{
+  height:44px;
+  width:auto;
+  fill:var(--heading);
+  opacity:.85;
+  display:inline-block;
+}
+
+.hero-email{
+  margin-top:.4rem;
+  margin-bottom:0;
+}
+
+.contact-line{
+  text-align:center;
+  margin-bottom:1rem;
+}
+
+.email{
+  text-align:center;
+  font-size:18px;
+  font-style:italic;
+  margin-bottom:0;
+}
+
+.post{margin-bottom:1.75rem}
+.post:last-of-type{margin-bottom:1.4rem}
+
+.post-title{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-style:italic;
+  font-weight:500;
+  font-size:1.2rem;
+  line-height:1.35;
+  margin-bottom:.3rem;
+}
+
+.post-meta{
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  margin-bottom:.4rem;
+  font-variant:small-caps;
+}
+
+.post-summary{
+  font-size:15.5px;
+  line-height:1.7;
+  margin-bottom:0;
+}
+
+.more-link{
+  font-size:14px;
+  color:var(--text-muted);
+  margin-bottom:0;
+  margin-top:.5rem;
+}
+.more-link a{
+  color:var(--accent);
+  text-decoration-color:rgba(162, 148, 108, 0.35);
+}
+
+.colophon{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  padding:1.5rem 1rem 3rem;
+  font-size:12px;
+  letter-spacing:.05em;
+  color:var(--text-muted);
+  line-height:2;
+}
+.colophon a{
+  color:var(--text-muted);
+  text-decoration-color:rgba(162, 148, 108, 0.3);
+}
+.colophon-links{margin-bottom:.2rem}
+
+@media(max-width:640px){
+  main{padding:2rem .75rem 1.5rem}
+  .panel{
+    padding:2rem 1.25rem 1.75rem;
+    margin-bottom:2rem;
+  }
+  .drop-cap::first-letter{
+    font-size:56px;
+    padding:4px 8px 0 0;
+  }
+  .pullquote{font-size:18px;margin-bottom:2rem}
+  .pullquote::before,
+  .pullquote::after{margin:1.2rem auto}
+  .sigil-divider{margin:2rem 0}
+  .sigil-divider svg{height:36px}
+  .sev-masthead{padding:3rem 1rem 2.25rem}
+  .sev-masthead-sigil{height:72px;margin-bottom:1.25rem}
+  .sev-wordmark-primary{font-size:28px}
+  .sev-wordmark-rule{margin:.7rem auto}
+  .sev-watermark{height:min(560px, 70vh)}
+  h3{font-size:1.05rem;margin-top:1.6rem}
+  .post{margin-bottom:1.4rem}
+}
+
+@media print{
+  body{background:#fff;color:#000}
+  body::before,body::after{display:none}
+  main{max-width:none;padding:2cm 1.5cm}
+  .panel{
+    background:none;
+    box-shadow:none;
+    padding:0;
+    margin:2rem 0;
+    backdrop-filter:none;
+  }
+  .panel::after{display:none}
+  .panel::before{display:none}
+  .eyebrow{color:#555}
+  .eyebrow::after{background:#aaa}
+  .drop-cap::first-letter{color:#333;text-shadow:none}
+  .pullquote{color:#000}
+  .pullquote::before,.pullquote::after{background:#aaa}
+  .sev-watermark{display:none}
+  .sev-masthead-sigil{fill:#333}
+  .sev-wordmark-primary,.sev-wordmark-secondary{color:#000}
+  .sev-wordmark-rule{background:#aaa}
+  .sigil-divider svg{fill:#555}
+  a{color:#000;text-decoration-color:#888}
+  a[href^="http"]::after{content:" [" attr(href) "]";font-size:.8em;color:#555}
+  a[href^="mailto"]::after{content:none}
+  .colophon{color:#555}
+  .post-meta{color:#555}
+}
+
+/* ── Copilot Oversharing Report Card — featured entry offer ──────────── */
+.offer-card{
+  max-width:640px;
+  margin:0 auto 3rem;
+  padding-top:2.5rem;
+  scroll-margin-top:1.5rem;
+}
+
+/* deep-gold "featured" hairline along the top edge */
+.offer-card .offer-toprule{
+  position:absolute;
+  top:0;left:0;right:0;
+  height:2px;
+  background:linear-gradient(to right,transparent,var(--accent) 16%,var(--accent) 84%,transparent);
+  pointer-events:none;
+}
+
+/* metal-tier hairline variants for the engagement cards */
+.offer-card .offer-toprule--silver{
+  background:linear-gradient(to right,transparent,#b6bcc6 16%,#b6bcc6 84%,transparent);
+}
+.offer-card .offer-toprule--gold{
+  background:linear-gradient(to right,transparent,#d4af37 16%,#d4af37 84%,transparent);
+}
+.offer-card .offer-toprule--violet{
+  background:linear-gradient(to right,transparent,#9c80c4 16%,#9c80c4 84%,transparent);
+}
+
+/* ── ambient "catching light" sweep across the engagement strips ──────
+   A barely-there highlight drifts across each toprule, derived from a
+   light token via color-mix so it reads identically over the silver,
+   gold, violet, and accent variants — it adds no new colour. Sits on a
+   ::after so it inherits whatever display state the strip has at the
+   current breakpoint (it never forces the strip visible). Motion only:
+   for prefers-reduced-motion the pseudo-element is never created. */
+@media (prefers-reduced-motion: no-preference){
+  .offer-card .offer-toprule::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:linear-gradient(to right,
+      transparent 41%,
+      color-mix(in srgb, var(--heading) 18%, transparent) 50%,
+      transparent 59%);
+    background-size:200% 100%;
+    background-repeat:no-repeat;
+    background-position:150% 0;
+    animation:offer-toprule-sweep 10s ease-in-out infinite;
+    animation-delay:1.8s;
+  }
+
+  /* gentle stagger so the cards read as ambient light, not one synced pulse */
+  #report-card .offer-toprule::after{animation-delay:0s}
+  .offer-card .offer-toprule--silver::after{animation-delay:3.6s}
+  .offer-card .offer-toprule--gold::after{animation-delay:5.4s}
+  .offer-card .offer-toprule--violet::after{animation-delay:7.2s}
+
+  /* light travels during 0%→68%, then idles off-strip until 100% (a soft pause) */
+  @keyframes offer-toprule-sweep{
+    0%   {background-position:150% 0}
+    68%  {background-position:-50% 0}
+    100% {background-position:-50% 0}
+  }
+}
+
+.offer-head{margin-bottom:1.5rem}
+
+.offer-kicker{
+  font-variant:small-caps;
+  letter-spacing:.32em;
+  font-size:11px;
+  color:var(--accent);
+  margin:0 0 .6rem;
+  line-height:1.4;
+}
+
+/* title row holds the spec-sheet headline + the grade emblem */
+.offer-titlewrap{position:relative}
+
+.offer-title{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-weight:400;
+  font-size:1.74rem;
+  line-height:1.14;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--heading);
+  margin:0;
+  max-width:74%;
+}
+.offer-title::after{
+  content:'';
+  display:block;
+  width:64px;
+  height:2px;
+  margin:.85rem 0 0;
+  background:linear-gradient(to right,var(--accent),rgba(162,148,108,0));
+}
+
+/* cards without the grade emblem can use the full measure */
+.offer-title--full{max-width:100%}
+
+.offer-tagline{
+  font-style:italic;
+  font-size:1.12rem;
+  line-height:1.4;
+  color:var(--text);
+  margin:.95rem 0 0;
+}
+
+/* report-card grade emblem, aligned to the headline */
+.offer-grade{
+  position:absolute;
+  top:-.1rem;
+  right:0;
+  width:72px;
+  text-align:center;
+  border:1px solid rgba(162,148,108,.5);
+  padding:.35rem 0 .4rem;
+  color:var(--accent);
+  line-height:1;
+}
+.offer-grade-mark{
+  display:block;
+  font-size:36px;
+  font-weight:700;
+  letter-spacing:.02em;
+  text-shadow:0 1px 0 rgba(0,0,0,.4);
+}
+.offer-grade-scale{
+  display:block;
+  font-variant:small-caps;
+  letter-spacing:.2em;
+  font-size:10px;
+  color:var(--accent);
+  margin-top:.28rem;
+  padding-top:.3rem;
+  border-top:1px solid rgba(162,148,108,.4);
+}
+
+/* inner gold-ruled spec frame — the "report card" border */
+.offer-frame{
+  border:1px solid rgba(162,148,108,.4);
+  padding:1.6rem 1.55rem 1.7rem;
+}
+
+.offer-lead{margin-bottom:1.2rem}
+.offer-amount{color:var(--accent)}
+
+/* small-caps gold run-in labels (inline, no compounding margins) */
+.offer-label{
+  font-variant:small-caps;
+  letter-spacing:.22em;
+  font-size:.92em;
+  color:var(--accent);
+}
+
+.offer-getlabel{
+  display:block;
+  font-variant:small-caps;
+  letter-spacing:.26em;
+  font-size:12px;
+  color:var(--accent);
+  margin:0 0 .6rem;
+}
+
+.offer-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.offer-list li{
+  position:relative;
+  padding-left:1.3rem;
+  margin-bottom:.55rem;
+  line-height:1.6;
+}
+.offer-list li:last-child{margin-bottom:0}
+.offer-list li::before{
+  content:'·';
+  position:absolute;
+  left:.25rem;
+  top:-.04em;
+  color:var(--accent);
+  font-size:1.45em;
+  line-height:1;
+}
+
+.offer-why{margin:1.5rem 0 0}
+.offer-close{margin:1.2rem 0 0}
+
+/* bracketed [ BOOK THE SCAN › ] button — brackets baked into markup */
+.offer-cta-wrap{text-align:center;margin:2rem 0 0}
+.offer-cta{
+  display:inline-block;
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-variant:small-caps;
+  letter-spacing:.2em;
+  font-size:15px;
+  color:var(--accent);
+  text-decoration:none;
+  border:1px solid var(--accent);
+  padding:.7rem 1.6rem;
+  background:rgba(255,255,255,.04);
+  box-shadow:0 1px 0 rgba(255,255,255,.05) inset;
+  transition:background .18s ease,color .18s ease,box-shadow .18s ease;
+}
+.offer-cta:hover{
+  background:var(--accent);
+  color:var(--bg);
+  text-decoration:none;
+  box-shadow:0 6px 16px rgba(0,0,0,.5);
+}
+.offer-cta .offer-bracket{color:var(--accent)}
+.offer-cta:hover .offer-bracket{color:var(--bg)}
+
+@media(max-width:640px){
+  .offer-card{padding-top:2rem}
+  .offer-title{font-size:1.4rem;max-width:100%}
+  .offer-tagline{font-size:1.02rem}
+  .offer-grade{display:none}
+  .offer-frame{padding:1.25rem 1.1rem 1.35rem}
+  .offer-getlabel{letter-spacing:.2em}
+  .offer-cta-wrap{margin-top:1.6rem}
+  .offer-cta{display:block;letter-spacing:.16em}
+}
+
+@media print{
+  .offer-card .offer-toprule{display:none}
+  .offer-grade{display:none}
+  .offer-frame{border-color:#aaa;padding:0}
+  .offer-title{color:#000}
+  .offer-title::after{background:#aaa}
+  .offer-kicker,.offer-label,.offer-getlabel{color:#555}
+  .offer-amount{color:#000}
+  .offer-list li::before{color:#555}
+  .offer-cta{
+    border-color:#888;
+    background:none;
+    color:#000;
+    box-shadow:none;
+    padding:0;
+  }
+  .offer-cta .offer-bracket{color:#555}
+  .offer-cta::after{content:none !important}
+}
+
+/* ── Masthead proof strip ────────────────────────────────────────────── */
+.sev-proof{
+  font-variant:small-caps;
+  letter-spacing:.2em;
+  font-size:10.5px;
+  color:var(--accent);
+  text-align:center;
+  max-width:540px;
+  margin:1.75rem auto 0;
+  line-height:1.7;
+}
+.sev-proof::before{
+  content:'';
+  display:block;
+  width:56px;
+  height:1px;
+  background:linear-gradient(to right, transparent, var(--accent), transparent);
+  margin:0 auto 1.1rem;
+}
+
+/* ── Field Notes capture band + Exposure Grade gate ──────────────────── */
+.sev-capture-copy{
+  text-align:center;
+  font-style:italic;
+  color:var(--text);
+  max-width:520px;
+  margin:0 auto 1.6rem;
+}
+.sev-capture-form{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.6rem;
+  max-width:480px;
+  margin:0 auto;
+  justify-content:center;
+}
+.sev-capture-input{
+  flex:1 1 240px;
+  min-width:0;
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-size:16px;
+  color:var(--text);
+  background:var(--bg);
+  border:1px solid var(--accent);
+  padding:.7rem .9rem;
+  line-height:1.4;
+}
+.sev-capture-input::placeholder{color:var(--text-faint)}
+.sev-capture-input:focus{
+  outline:none;
+  border-color:var(--accent-strong);
+  box-shadow:0 0 0 1px rgba(162,148,108,.45);
+}
+.sev-capture-btn{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-variant:small-caps;
+  letter-spacing:.2em;
+  font-size:15px;
+  color:var(--bg);
+  background:var(--accent);
+  border:1px solid var(--accent);
+  padding:.7rem 1.5rem;
+  cursor:pointer;
+  transition:background .18s ease;
+}
+.sev-capture-btn:hover{background:var(--accent-strong)}
+.sev-capture-btn:disabled{opacity:.55;cursor:default}
+.sev-capture-msg{
+  text-align:center;
+  font-size:14px;
+  font-style:italic;
+  color:var(--text);
+  margin:1.1rem auto 0;
+  max-width:480px;
+}
+.sev-capture-msg.is-error{color:#e08a78;font-style:normal}
+.sev-capture-msg a{color:var(--accent)}
+
+/* Exposure Grade gate — small panel */
+.sev-grade-title{
+  font-family:Georgia,'Iowan Old Style','Palatino Linotype',serif;
+  font-weight:400;
+  font-size:1.4rem;
+  line-height:1.2;
+  letter-spacing:.03em;
+  text-align:center;
+  color:var(--heading);
+  margin:0 0 .95rem;
+}
+.sev-grade-copy{
+  text-align:center;
+  color:var(--text);
+  max-width:500px;
+  margin:0 auto 1.15rem;
+}
+
+@media(max-width:640px){
+  .sev-proof{letter-spacing:.16em;font-size:10px;margin-top:1.4rem}
+  .sev-grade-title{font-size:1.25rem}
+  .sev-capture-btn{flex:1 1 auto}
+}
+
+@media print{
+  .sev-proof{color:#555}
+  .sev-proof::before{background:#aaa}
+  .sev-capture-form,.sev-capture-msg{display:none}
+  .sev-grade-title{color:#000}
+}
+</style>
+</head>
+<body>
+
+<svg class="sev-watermark" viewBox="0 0 85 386" aria-hidden="true" focusable="false">
+  <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
+</svg>
+
+<main>
+
+  <header class="sev-masthead">
+    <svg class="sev-masthead-sigil" viewBox="0 0 85 386" aria-hidden="true" focusable="false">
+      <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
+    </svg>
+    <h1 class="sev-wordmark-primary">SEVERIAN</h1>
+    <div class="sev-wordmark-rule" aria-hidden="true"></div>
+    <p class="sev-wordmark-secondary">TECHNOLOGY GROUP</p>
+    <p class="sev-proof">Current Engagement &middot; Purview Data Risk Assessment &middot; A Major U.S. Cultural Institution</p>
+  </header>
+
+  <section class="panel sev-grade">
+    <h2 class="eyebrow">Free read</h2>
+    <p class="sev-grade-title">Free: Your Copilot Exposure Grade</p>
+    <p class="sev-grade-copy">An estimated A&ndash;F grade &mdash; outside-in, no tenant access. Based on two questions, your licensing, and how Microsoft 365 estates like yours typically drift. It answers one question: <i>how worried should you be?</i></p>
+    <p class="sev-grade-copy">The <a href="#report-card">Report Card</a> is the diagnosis &mdash; your real grade, measured inside the tenant, with the receipts.</p>
+    <p class="offer-cta-wrap"><a class="offer-cta" href="mailto:matt@severiansecurity.com?subject=Copilot%20Exposure%20Grade%20request&amp;body=Tenant%20size%20(seats)%3A%0ALicensing%20(E3%2FE5%2FA5)%3A%0A"><span class="offer-bracket">[</span> Request your grade &rsaquo; <span class="offer-bracket">]</span></a></p>
+  </section>
+
+  <p class="pullquote">The license was treated as the deliverable, but it was only ever the starting material. Copilot didn't create a new risk, it made the existing one observable.</p>
+
+  <section class="panel offer-card" id="report-card">
+    <div class="offer-toprule" aria-hidden="true"></div>
+
+    <div class="offer-head">
+      <p class="offer-kicker">Featured engagement</p>
+      <div class="offer-titlewrap">
+        <div class="offer-grade" aria-hidden="true">
+          <span class="offer-grade-mark">A</span>
+          <span class="offer-grade-scale">A-F</span>
+        </div>
+        <h2 class="offer-title">The Copilot Oversharing Report Card</h2>
+      </div>
+      <p class="offer-tagline">Find out what Copilot can see, before your users do.</p>
+    </div>
+
+    <div class="offer-frame">
+      <p class="offer-lead"><b><span class="offer-amount">$2,500</span> flat.</b> Founding rate for the first five organizations; $3,500 after. Five business days, start to readout.</p>
+
+      <span class="offer-getlabel">You get</span>
+      <ul class="offer-list">
+        <li>An evidence-based A&ndash;F exposure grade for your Microsoft 365 tenant &mdash; measured, not estimated.</li>
+        <li>The top-10 overshared locations, each with an owner and a blast radius</li>
+        <li>A sensitive-data heat list: the SITs that actually matter to you (SSNs, donor and student records, payroll, board materials)</li>
+        <li>A 60-minute executive readout in plain language</li>
+        <li>One fixed-fee next step. No hourly anything, ever.</li>
+      </ul>
+
+      <p class="offer-why"><span class="offer-label">Why us:</span> Built and personally delivered by one of a small handful of U.S. Microsoft MVPs recognized for Purview and data security...the practitioner, not a bench of juniors. Recent client: a major U.S. art museum, 500 seats, pre-Copilot rollout.</p>
+
+      <p class="offer-close"><b>Priced to be signable without procurement.</b> One week from now, you&rsquo;ll know your grade.</p>
+    </div>
+
+    <p class="offer-cta-wrap"><a class="offer-cta" href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile"><span class="offer-bracket">[</span> Book the Scan &rsaquo; <span class="offer-bracket">]</span></a></p>
+  </section>
+
+  <section class="panel">
+    <p class="drop-cap">Severian Technology Group is the data security practice of Matthew Silcox, a Microsoft Most Valuable Professional in Purview Data Security and a United States Marine Corps veteran.</p>
+
+    <p>The work is architecting and implementing Microsoft Purview programs for organizations that already own E5 licensing and need their Purview tenant to do what their auditors, compliance frameworks, and Copilot deployment plans already assume it is doing.</p>
+
+    <p>The clients are regulated enterprises (healthcare, financial services, government, defense, and nonprofit) operating under frameworks that assume data security controls already exist.</p>
+
+    <p class="hero-email">If this describes your situation: <a href="mailto:matt@severiansecurity.com">matt@severiansecurity.com</a> · <a href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile">Book a 30-minute scoping call</a></p>
+  </section>
+
+  <div class="sigil-divider" aria-hidden="true">
+    <svg viewBox="0 0 85 386" aria-hidden="true" focusable="false">
+      <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
+    </svg>
+  </div>
+
+  <section class="panel">
+    <h2 class="eyebrow">Engagements</h2>
+
+    <p>Every engagement is fixed-scope and fixed-fee. No hourly billing. No scope ambiguity. The deliverable is something you can hand to an auditor, a board, or a remediation team.</p>
+  </section>
+
+  <section class="panel offer-card">
+    <div class="offer-toprule" aria-hidden="true"></div>
+
+    <div class="offer-head">
+      <p class="offer-kicker">Fixed-fee engagement</p>
+      <div class="offer-titlewrap">
+        <h2 class="offer-title offer-title--full">Purview Data Risk Assessment</h2>
+      </div>
+      <p class="offer-tagline">Where your attested compliance posture and your operational reality diverge.</p>
+    </div>
+
+    <div class="offer-frame">
+      <p class="offer-lead"><b><span class="offer-amount">$15,000</span> flat.</b> Three weeks, start to readout.</p>
+
+      <span class="offer-getlabel">You get</span>
+      <ul class="offer-list">
+        <li>A scored examination of what your Purview tenant is actually classifying, what it is missing, and where the gap between your attested compliance posture and your operational reality is widest</li>
+        <li>Proprietary Exchange Online at-rest mailbox scanning</li>
+        <li>A sensitivity label taxonomy recommendation</li>
+        <li>A prioritized remediation roadmap with 30/60/90-day milestones</li>
+      </ul>
+
+      <p class="offer-close">Sometimes the assessment is the entire engagement. More often it becomes the basis for the architecture and implementation work that follows.</p>
+    </div>
+
+    <p class="offer-cta-wrap"><a class="offer-cta" href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile"><span class="offer-bracket">[</span> Book a Scoping Call &rsaquo; <span class="offer-bracket">]</span></a></p>
+  </section>
+
+  <section class="panel offer-card">
+    <div class="offer-toprule offer-toprule--silver" aria-hidden="true"></div>
+
+    <div class="offer-head">
+      <p class="offer-kicker">Fixed-fee engagement</p>
+      <div class="offer-titlewrap">
+        <h2 class="offer-title offer-title--full">Copilot Readiness &amp; Oversharing Assessment</h2>
+      </div>
+      <p class="offer-tagline">Copilot does not apply judgment to access &mdash; it operates within your users&rsquo; existing permissions.</p>
+    </div>
+
+    <div class="offer-frame">
+      <p class="offer-lead"><b><span class="offer-amount">$25,000</span> flat.</b> Four weeks, start to readout.</p>
+
+      <p>For organizations deploying or planning M365 Copilot. This engagement quantifies the data exposure Copilot will amplify.</p>
+
+      <span class="offer-getlabel">You get</span>
+      <ul class="offer-list">
+        <li>SharePoint oversharing audit</li>
+        <li>Persona-based risk modeling</li>
+        <li>DLP-for-Copilot policy templates</li>
+        <li>A go/no-go recommendation with a Copilot-safe deployment architecture</li>
+      </ul>
+    </div>
+
+    <p class="offer-cta-wrap"><a class="offer-cta" href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile"><span class="offer-bracket">[</span> Book a Scoping Call &rsaquo; <span class="offer-bracket">]</span></a></p>
+  </section>
+
+  <section class="panel offer-card">
+    <div class="offer-toprule offer-toprule--gold" aria-hidden="true"></div>
+
+    <div class="offer-head">
+      <p class="offer-kicker">Fixed-fee engagement</p>
+      <div class="offer-titlewrap">
+        <h2 class="offer-title offer-title--full">Enterprise Purview Readiness</h2>
+      </div>
+      <p class="offer-tagline">Full-stack Purview design for regulated enterprises with complex requirements.</p>
+    </div>
+
+    <div class="offer-frame">
+      <p class="offer-lead"><b><span class="offer-amount">$45,000&ndash;$75,000</span>, fixed at scoping.</b> Six to eight weeks. Scoped on seat count, workload count, and regulatory complexity.</p>
+
+      <span class="offer-getlabel">You get</span>
+      <ul class="offer-list">
+        <li>Information Protection, DLP, Insider Risk Management, Data Lifecycle Management, and Compliance Manager &mdash; designed as one program</li>
+        <li>An implementation blueprint with configuration-level specifications</li>
+        <li>A phased deployment plan</li>
+        <li>A total cost of ownership model for your Purview investment</li>
+      </ul>
+    </div>
+
+    <p class="offer-cta-wrap"><a class="offer-cta" href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile"><span class="offer-bracket">[</span> Book a Scoping Call &rsaquo; <span class="offer-bracket">]</span></a></p>
+  </section>
+
+  <section class="panel offer-card">
+    <div class="offer-toprule offer-toprule--violet" aria-hidden="true"></div>
+
+    <div class="offer-head">
+      <p class="offer-kicker">Monthly retainer</p>
+      <div class="offer-titlewrap">
+        <h2 class="offer-title offer-title--full">Managed Purview Operations</h2>
+      </div>
+      <p class="offer-tagline">Ongoing Purview support after implementation.</p>
+    </div>
+
+    <div class="offer-frame">
+      <p class="offer-lead"><b>Retainers start at <span class="offer-amount">$4,000</span>/month.</b></p>
+
+      <span class="offer-getlabel">You get</span>
+      <ul class="offer-list">
+        <li>Monthly DLP and policy tuning</li>
+        <li>Oversharing monitoring via proprietary scanning</li>
+        <li>Quarterly executive review</li>
+        <li>Ad-hoc advisory</li>
+      </ul>
+    </div>
+
+    <p class="offer-cta-wrap"><a class="offer-cta" href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile"><span class="offer-bracket">[</span> Book a Scoping Call &rsaquo; <span class="offer-bracket">]</span></a></p>
+  </section>
+
+  <p class="pullquote">Most Purview tenants are configured to catch what the documentation demonstrates. The regulated data that actually lives in your environment rarely looks like the examples.</p>
+
+  <section class="panel">
+    <h2 class="eyebrow"><a href="/about/">Matthew Silcox</a></h2>
+
+    <p>Matt is one of three U.S.-based MVPs whose recognized contribution area is Microsoft Purview. Matt holds SC-100 (Cybersecurity Architect Expert), SC-200 (Security Operations Analyst Associate), and SC-401 (Information Security Administrator Associate) certifications. Prior to technology, Matt served four years in the United States Marine Corps.</p>
+
+    <p>MVPs gain access to pre-release capabilities, roadmap briefings, and the architectural context that determines how these platforms will evolve before that evolution reaches public documentation.</p>
+
+
+    <p>The technical depth (implementation specifics, undocumented platform behaviors, the problems that emerge only at the boundary between what the documentation promises and what the software actually does) is published at <a href="https://severian.ghost.io">severian.ghost.io</a> for practitioners who do the work, not the people who approve the budget.</p>
+  </section>
+
+  <div class="sigil-divider" aria-hidden="true">
+    <svg viewBox="0 0 85 386" aria-hidden="true" focusable="false">
+      <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
+    </svg>
+  </div>
+
+  <section class="panel">
+    <h2 class="eyebrow">Recent writing</h2>
+
+    <div class="post">
+      <p class="post-title"><a href="https://severian.ghost.io/the-payer-data-classification-gap-thats-going-to-show-up-in-your-nprm-asset-inventory/">The Payer Data Classification Gap That's Going to Show Up in Your NPRM Asset Inventory</a></p>
+      <p class="post-meta">May 22, 2026</p>
+      <p class="post-summary">Why the NPRM's classification mandate traces to OCR's enforcement pattern rather than any single named breach, and what payers should be inventorying now.</p>
+    </div>
+
+    <div class="post">
+      <p class="post-title"><a href="https://severian.ghost.io/the-hipaa-security-rule-nprm-is-a-forensic-document-what-2024s-two-largest-breaches-already-told-us-about-2026s-compliance-map/">The HIPAA Security Rule NPRM is a Forensic Document</a></p>
+      <p class="post-meta">May 10, 2026</p>
+      <p class="post-summary">Reading the proposed Security Rule as forensic reconstruction: how 2024's largest breaches dictated 2026's compliance map.</p>
+    </div>
+
+    <div class="post">
+      <p class="post-title"><a href="https://severian.ghost.io/the-copilot-problem-is-a-data-hygiene-problem/">The Copilot Problem Is a Data Hygiene Problem</a></p>
+      <p class="post-meta">April 6, 2026</p>
+      <p class="post-summary">Copilot did not create a new security risk. The exposure was already there; the deployment just made it observable.</p>
+    </div>
+
+    <p class="more-link">More at <a href="https://severian.ghost.io">severian.ghost.io</a></p>
+  </section>
+
+  <div class="sigil-divider" aria-hidden="true">
+    <svg viewBox="0 0 85 386" aria-hidden="true" focusable="false">
+      <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z M 38,59 L 47,59 L 47,327 L 38,327 Z" fill-rule="evenodd"/>
+    </svg>
+  </div>
+
+  <section class="panel">
+    <p class="contact-line">Pick the engagement type that fits. The conversation takes 30 minutes.</p>
+    <p class="email"><a href="mailto:matt@severiansecurity.com">matt@severiansecurity.com</a> · <a href="https://outlook.office.com/bookwithme/user/842ded1addd242609117649aac85cc5e@severiansecurity.com/meetingtype/UgrdBj4480eddUfuq1bBQQ2?anonymous&amp;ep=mLinkFromTile">Book a 30-minute scoping call</a></p>
+  </section>
+
+  <section class="panel sev-capture" data-capture>
+    <h2 class="eyebrow">Field Notes Blog</h2>
+    <p class="sev-capture-copy">Purview, Copilot readiness, and data security &mdash; written for the people who do the work. No more than weekly.</p>
+    <form class="sev-capture-form" novalidate>
+      <input class="sev-capture-input" type="email" name="email" required placeholder="you@organization.com" aria-label="Email address" autocomplete="email" inputmode="email">
+      <button class="sev-capture-btn" type="submit">Subscribe</button>
+    </form>
+    <p class="sev-capture-msg" role="status" aria-live="polite" hidden></p>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <p class="colophon-links"><a href="https://severian.ghost.io">severian.ghost.io</a> &middot; <a href="https://www.linkedin.com/in/matthew-silcox-a73518297/">LinkedIn</a> &middot; <a href="/about/">About</a> &middot; <a href="/privacy/">Privacy</a></p>
+  <p>&copy; 2026 Severian Technology Group</p>
+</footer>
+
+<script>
+(function(){
+  var ENDPOINT='https://severian.ghost.io/members/api/send-magic-link/';
+  var PORTAL='https://severian.ghost.io/#/portal/signup';
+  var EMAIL_RE=/^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+
+  function show(msg,text,isError,linkHref,linkText){
+    if(!msg) return;
+    msg.textContent=text;
+    if(linkHref){
+      var a=document.createElement('a');
+      a.href=linkHref;
+      a.textContent=linkText||'sign up directly';
+      msg.appendChild(a);
+      msg.appendChild(document.createTextNode('.'));
+    }
+    msg.classList.toggle('is-error',!!isError);
+    msg.hidden=false;
+  }
+
+  function bind(form){
+    var scope=form.closest('[data-capture]')||form.parentNode;
+    var input=form.querySelector('input[type="email"]');
+    var btn=form.querySelector('button');
+    var msg=scope.querySelector('.sev-capture-msg');
+
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=(input.value||'').trim();
+      if(!EMAIL_RE.test(email)){
+        show(msg,'Please enter a valid email address.',true);
+        return;
+      }
+      var label=btn.textContent;
+      btn.disabled=true;
+      btn.textContent='Sending…';
+
+      fetch(ENDPOINT,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email:email,emailType:'subscribe'})
+      }).then(function(res){
+        if(res.ok){
+          form.reset();
+          show(msg,'Check your inbox to confirm.',false);
+        }else{
+          show(msg,'Something went wrong — you can ',true,PORTAL);
+        }
+      }).catch(function(){
+        show(msg,'Couldn’t reach the signup service — you can ',true,PORTAL);
+      }).then(function(){
+        btn.disabled=false;
+        btn.textContent=label;
+      });
+    });
+  }
+
+  var forms=document.querySelectorAll('form.sev-capture-form');
+  for(var i=0;i<forms.length;i++) bind(forms[i]);
+})();
+</script>
+
+</body>
+</html>

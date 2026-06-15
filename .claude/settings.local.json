@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote:*)",
+      "Bash(git fetch:*)",
+      "Bash(git branch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git rm:*)",
+      "Bash(git push:*)",
+      "Bash(gh pr:*)",
+      "Bash(where gh:*)",
+      "Bash(curl -s -A \"Mozilla/5.0\" https://severian.ghost.io/rss/)",
+      "Bash(gh auth *)",
+      "Bash(git config *)",
+      "Bash(git ls-remote *)",
+      "Bash(git ls-tree *)",
+      "Bash(git merge *)",
+      "Bash(python -)",
+      "Bash(git --no-pager diff --word-diff)",
+      "Bash(grep -iE '\\\\.\\(jpg|jpeg|png|webp|avif|gif\\)$')",
+      "WebSearch",
+      "Bash(grep -Ei '#[0-9a-f]{3,8}\\\\b|rgb\\\\\\(|rgba\\\\\\(|hsl\\\\\\(|hsla\\\\\\(|\\\\b\\(red|blue|green|gold|silver|violet|white|black|gray|grey|orange|purple|yellow|pink|brown|cyan|magenta\\)\\\\b')"
+    ]
+  }
+}

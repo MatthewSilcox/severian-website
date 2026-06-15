@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SEVERIAN TECHNOLOGY GROUP — Sword Mark (Terminus Est)
+  Outer ratio ~1:4.5 | Fuller ~10.6% of blade width
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="85" height="386"
+     viewBox="0 0 85 386">
+
+  <path d="M 0,0 L 85,0 L 85,386 L 0,386 Z
+           M 38,59 L 47,59 L 47,327 L 38,327 Z"
+        fill="#ECEEEB"
+        fill-rule="evenodd" />
+
+</svg>
